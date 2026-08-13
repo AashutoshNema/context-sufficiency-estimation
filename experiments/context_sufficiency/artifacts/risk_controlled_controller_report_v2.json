@@ -1,0 +1,100 @@
+{
+  "calibration_method": "isotonic regression",
+  "calibration_task_groups": 14,
+  "decision_prefixes": 380,
+  "heldout_task_groups": 23,
+  "note": "Risk-controlled offline evaluation. Abstention means the controller would request more context or escalate rather than issue a write. Labels remain hard-counterfactual continuation outcomes.",
+  "policies": {
+    "alpha_0.2": {
+      "coverage": 0.5236842105263158,
+      "decision_rows": 380,
+      "mean_context_tokens": 1554.5736842105264,
+      "mean_read_calls": 1.5421052631578946,
+      "p90_read_calls": 3.0,
+      "safe_rate_all": 0.07368421052631578,
+      "safe_rate_attempted": 0.1407035175879397
+    },
+    "alpha_0.3": {
+      "coverage": 0.5236842105263158,
+      "decision_rows": 380,
+      "mean_context_tokens": 1554.5736842105264,
+      "mean_read_calls": 1.5421052631578946,
+      "p90_read_calls": 3.0,
+      "safe_rate_all": 0.07368421052631578,
+      "safe_rate_attempted": 0.1407035175879397
+    },
+    "alpha_0.4": {
+      "coverage": 0.5236842105263158,
+      "decision_rows": 380,
+      "mean_context_tokens": 1554.5736842105264,
+      "mean_read_calls": 1.5421052631578946,
+      "p90_read_calls": 3.0,
+      "safe_rate_all": 0.07368421052631578,
+      "safe_rate_attempted": 0.1407035175879397
+    },
+    "alpha_0.5": {
+      "coverage": 0.5236842105263158,
+      "decision_rows": 380,
+      "mean_context_tokens": 1554.5736842105264,
+      "mean_read_calls": 1.5421052631578946,
+      "p90_read_calls": 3.0,
+      "safe_rate_all": 0.07368421052631578,
+      "safe_rate_attempted": 0.1407035175879397
+    },
+    "full_context": {
+      "coverage": 1.0,
+      "decision_rows": 380,
+      "mean_context_tokens": 1800.0394736842106,
+      "mean_read_calls": 4.265789473684211,
+      "p90_read_calls": 8.0,
+      "safe_rate_all": 0.34210526315789475,
+      "safe_rate_attempted": 0.34210526315789475
+    },
+    "no_read": {
+      "coverage": 1.0,
+      "decision_rows": 380,
+      "mean_context_tokens": 1362.0394736842106,
+      "mean_read_calls": 0.0,
+      "p90_read_calls": 0.0,
+      "safe_rate_all": 0.3105263157894737,
+      "safe_rate_attempted": 0.3105263157894737
+    }
+  },
+  "risk_control": {
+    "alpha_thresholds": {
+      "alpha_0.2": {
+        "selected": 55,
+        "threshold": 0.9428571428571428,
+        "unsafe": 2,
+        "unsafe_upper_bound": 0.1081893581470904
+      },
+      "alpha_0.3": {
+        "selected": 55,
+        "threshold": 0.9428571428571428,
+        "unsafe": 2,
+        "unsafe_upper_bound": 0.1081893581470904
+      },
+      "alpha_0.4": {
+        "selected": 55,
+        "threshold": 0.9428571428571428,
+        "unsafe": 2,
+        "unsafe_upper_bound": 0.1081893581470904
+      },
+      "alpha_0.5": {
+        "selected": 55,
+        "threshold": 0.9428571428571428,
+        "unsafe": 2,
+        "unsafe_upper_bound": 0.1081893581470904
+      }
+    },
+    "confidence": 0.95
+  },
+  "test_task_groups": 23,
+  "train_task_groups": 54,
+  "validation": {
+    "auprc": 0.2840084554884916,
+    "auroc": 0.8427098485496707,
+    "positive_rate": 0.06109660574412533,
+    "rows": 5745
+  }
+}

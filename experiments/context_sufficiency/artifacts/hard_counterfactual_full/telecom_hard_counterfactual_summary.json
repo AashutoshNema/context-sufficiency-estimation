@@ -1,0 +1,21 @@
+{
+  "candidate_origins": {
+    "actual": 350,
+    "perturbed": 20631,
+    "reference": 2680
+  },
+  "candidate_rows": 23661,
+  "decision_prefixes": 2007,
+  "errors": 0,
+  "execution_valid_rate": 0.4871729850809349,
+  "hard_execution_valid_rate": 0.4124375939120741,
+  "hard_safe_rate": 0.03829189084387572,
+  "perturbation_types": {
+    "none": 3030,
+    "replace_bill_id": 747,
+    "replace_customer_id": 9090,
+    "replace_gb_amount": 2460,
+    "replace_line_id": 8334
+  },
+  "safe_rate": 0.06817125227167069
+}
