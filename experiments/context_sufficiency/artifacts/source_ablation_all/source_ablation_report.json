@@ -1,0 +1,131 @@
+{
+  "full_rows": 23661,
+  "masked_rows": 134949,
+  "models": {
+    "context_only": {
+      "full_test": {
+        "auprc": 0.14031654281564057,
+        "auroc": 0.6272229775196034,
+        "brier": 0.21052613550179305,
+        "positive_rate": 0.06109660574412533,
+        "rows": 5745
+      },
+      "source_ablated_test": {
+        "auprc": 0.14149772154192722,
+        "auroc": 0.6785176854964723,
+        "brier": 0.18234840493351684,
+        "positive_rate": 0.04764009192151317,
+        "rows": 22628
+      }
+    },
+    "full_features": {
+      "full_test": {
+        "auprc": 0.14255262957662612,
+        "auroc": 0.6682374739475221,
+        "brier": 0.1522128226882433,
+        "positive_rate": 0.06109660574412533,
+        "rows": 5745
+      },
+      "source_ablated_test": {
+        "auprc": 0.14849218977679948,
+        "auroc": 0.744231971210758,
+        "brier": 0.134605091900619,
+        "positive_rate": 0.04764009192151317,
+        "rows": 22628
+      }
+    }
+  },
+  "note": "Ablation changes observable context features while preserving hidden-state labels. This is an offline source-value proxy, not a live reacquisition controller.",
+  "selection": {
+    "context_only": {
+      "full_selected_safe_rate": 0.16779765576804442,
+      "groups": 1621,
+      "masked_selected_safe_rate": 0.16779765576804442,
+      "selection_changed_safe_outcome_rate": 0.0
+    },
+    "full_features": {
+      "full_selected_safe_rate": 0.3701418877236274,
+      "groups": 1621,
+      "masked_selected_safe_rate": 0.3701418877236274,
+      "selection_changed_safe_outcome_rate": 0.0
+    }
+  },
+  "source_effects": {
+    "context_only": [
+      {
+        "mean_abs_delta": 0.08935660171022598,
+        "mean_delta_safe_probability": -0.08935660171022598,
+        "risk_increase_rate": 1.0,
+        "rows": 572,
+        "source_tool": "get_bills_for_customer"
+      },
+      {
+        "mean_abs_delta": 0.008721627234972116,
+        "mean_delta_safe_probability": -0.008721627234972116,
+        "risk_increase_rate": 1.0,
+        "rows": 215,
+        "source_tool": "get_customer_by_id"
+      },
+      {
+        "mean_abs_delta": 0.008159838795197065,
+        "mean_delta_safe_probability": -0.008159838795197065,
+        "risk_increase_rate": 1.0,
+        "rows": 4933,
+        "source_tool": "get_customer_by_phone"
+      },
+      {
+        "mean_abs_delta": 0.03324163345238348,
+        "mean_delta_safe_probability": 0.03298245369040781,
+        "risk_increase_rate": 0.011346817957572768,
+        "rows": 2027,
+        "source_tool": "get_data_usage"
+      },
+      {
+        "mean_abs_delta": 0.06619216330565351,
+        "mean_delta_safe_probability": 0.06607243029132209,
+        "risk_increase_rate": 0.00215039311874202,
+        "rows": 14881,
+        "source_tool": "get_details_by_id"
+      }
+    ],
+    "full_features": [
+      {
+        "mean_abs_delta": 0.04255243276259252,
+        "mean_delta_safe_probability": -0.04255243276259252,
+        "risk_increase_rate": 1.0,
+        "rows": 572,
+        "source_tool": "get_bills_for_customer"
+      },
+      {
+        "mean_abs_delta": 0.007333302579052057,
+        "mean_delta_safe_probability": -0.007333302579052057,
+        "risk_increase_rate": 1.0,
+        "rows": 215,
+        "source_tool": "get_customer_by_id"
+      },
+      {
+        "mean_abs_delta": 0.05522986893854042,
+        "mean_delta_safe_probability": 0.05284275052803185,
+        "risk_increase_rate": 0.1191972430569633,
+        "rows": 4933,
+        "source_tool": "get_customer_by_phone"
+      },
+      {
+        "mean_abs_delta": 0.010047873273600407,
+        "mean_delta_safe_probability": 0.009710257167060534,
+        "risk_increase_rate": 0.011346817957572768,
+        "rows": 2027,
+        "source_tool": "get_data_usage"
+      },
+      {
+        "mean_abs_delta": 0.0336846224511049,
+        "mean_delta_safe_probability": 0.03256005430665957,
+        "risk_increase_rate": 0.045763053558228614,
+        "rows": 14881,
+        "source_tool": "get_details_by_id"
+      }
+    ]
+  },
+  "test_task_groups": 23,
+  "train_task_groups": 68
+}

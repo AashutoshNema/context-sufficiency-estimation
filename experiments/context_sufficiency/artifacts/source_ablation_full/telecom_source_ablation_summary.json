@@ -1,0 +1,13 @@
+{
+  "ablated_rows": 116791,
+  "hard_only": true,
+  "missing_labels": 0,
+  "prefixes": 1723,
+  "source_tools": {
+    "get_bills_for_customer": 2370,
+    "get_customer_by_id": 188,
+    "get_customer_by_phone": 17759,
+    "get_data_usage": 4482,
+    "get_details_by_id": 91992
+  }
+}

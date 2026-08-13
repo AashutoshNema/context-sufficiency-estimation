@@ -1,0 +1,140 @@
+{
+  "decision_prefixes": 380,
+  "heldout_task_groups": 23,
+  "models": {
+    "mechanical_baseline": {
+      "full_context": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1800.0394736842106,
+        "mean_predicted_safe_probability": 0.4371884510970203,
+        "mean_read_calls": 4.265789473684211,
+        "p50_read_calls": 4.0,
+        "p90_read_calls": 8.0,
+        "safe_rate": 0.22105263157894736
+      },
+      "no_read": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1362.0394736842106,
+        "mean_predicted_safe_probability": 0.5743428985771385,
+        "mean_read_calls": 0.0,
+        "p50_read_calls": 0.0,
+        "p90_read_calls": 0.0,
+        "safe_rate": 0.22105263157894736
+      },
+      "selective_0": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1601.3657894736841,
+        "mean_predicted_safe_probability": 0.5961650932019018,
+        "mean_read_calls": 1.3342105263157895,
+        "p50_read_calls": 1.0,
+        "p90_read_calls": 2.0,
+        "safe_rate": 0.22105263157894736
+      },
+      "selective_0.02": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1433.9342105263158,
+        "mean_predicted_safe_probability": 0.5865589585042315,
+        "mean_read_calls": 0.18421052631578946,
+        "p50_read_calls": 0.0,
+        "p90_read_calls": 1.0,
+        "safe_rate": 0.22105263157894736
+      },
+      "selective_0.05": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1422.8105263157895,
+        "mean_predicted_safe_probability": 0.5850175347593368,
+        "mean_read_calls": 0.13421052631578947,
+        "p50_read_calls": 0.0,
+        "p90_read_calls": 1.0,
+        "safe_rate": 0.22105263157894736
+      },
+      "selective_0.1": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1368.6868421052632,
+        "mean_predicted_safe_probability": 0.5759536808393293,
+        "mean_read_calls": 0.015789473684210527,
+        "p50_read_calls": 0.0,
+        "p90_read_calls": 0.0,
+        "safe_rate": 0.22105263157894736
+      }
+    },
+    "rich_context": {
+      "full_context": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1800.0394736842106,
+        "mean_predicted_safe_probability": 0.6402957493986396,
+        "mean_read_calls": 4.265789473684211,
+        "p50_read_calls": 4.0,
+        "p90_read_calls": 8.0,
+        "safe_rate": 0.3368421052631579
+      },
+      "no_read": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1362.0394736842106,
+        "mean_predicted_safe_probability": 0.6478518832789592,
+        "mean_read_calls": 0.0,
+        "p50_read_calls": 0.0,
+        "p90_read_calls": 0.0,
+        "safe_rate": 0.3263157894736842
+      },
+      "selective_0": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1525.3473684210526,
+        "mean_predicted_safe_probability": 0.8565649218477649,
+        "mean_read_calls": 1.5894736842105264,
+        "p50_read_calls": 1.0,
+        "p90_read_calls": 3.0,
+        "safe_rate": 0.26842105263157895
+      },
+      "selective_0.02": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1467.4868421052631,
+        "mean_predicted_safe_probability": 0.856021757891515,
+        "mean_read_calls": 0.95,
+        "p50_read_calls": 1.0,
+        "p90_read_calls": 2.0,
+        "safe_rate": 0.2710526315789474
+      },
+      "selective_0.05": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1466.7052631578947,
+        "mean_predicted_safe_probability": 0.8555042169478704,
+        "mean_read_calls": 0.9342105263157895,
+        "p50_read_calls": 1.0,
+        "p90_read_calls": 2.0,
+        "safe_rate": 0.2710526315789474
+      },
+      "selective_0.1": {
+        "decision_rows": 380,
+        "mean_context_tokens": 1431.5,
+        "mean_predicted_safe_probability": 0.8249600428592909,
+        "mean_read_calls": 0.6078947368421053,
+        "p50_read_calls": 1.0,
+        "p90_read_calls": 1.0,
+        "safe_rate": 0.2657894736842105
+      }
+    }
+  },
+  "note": "Offline controller evaluation. Read calls are reconstructed source events; no new LLM calls are made. Candidate safety labels come from hard counterfactual continuation replay.",
+  "thresholds": [
+    0.0,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "training_rows": 17916,
+  "validation": {
+    "mechanical_baseline": {
+      "auprc": 0.14031654281564057,
+      "auroc": 0.6272229775196034,
+      "positive_rate": 0.06109660574412533,
+      "rows": 5745
+    },
+    "rich_context": {
+      "auprc": 0.30365083927367764,
+      "auroc": 0.856105813465843,
+      "positive_rate": 0.06109660574412533,
+      "rows": 5745
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "full_rows": 20631,
+  "masked_rows": 116791,
+  "models": {
+    "context_only": {
+      "full_test": {
+        "auprc": 0.09998461443243994,
+        "auroc": 0.6819532269396769,
+        "brier": 0.18779517466083842,
+        "positive_rate": 0.03264331210191083,
+        "rows": 5024
+      },
+      "source_ablated_test": {
+        "auprc": 0.0944415107582401,
+        "auroc": 0.7703126904359016,
+        "brier": 0.16040310941158475,
+        "positive_rate": 0.022154779969650987,
+        "rows": 19770
+      }
+    },
+    "full_features": {
+      "full_test": {
+        "auprc": 0.10905533254327689,
+        "auroc": 0.6240539997992572,
+        "brier": 0.13255048216476645,
+        "positive_rate": 0.03264331210191083,
+        "rows": 5024
+      },
+      "source_ablated_test": {
+        "auprc": 0.1354165935370553,
+        "auroc": 0.776299640882177,
+        "brier": 0.11407540835140209,
+        "positive_rate": 0.022154779969650987,
+        "rows": 19770
+      }
+    }
+  },
+  "note": "Ablation changes observable context features while preserving hidden-state labels. This is an offline source-value proxy, not a live reacquisition controller.",
+  "selection": {
+    "context_only": {
+      "full_selected_safe_rate": 0.0,
+      "groups": 1621,
+      "masked_selected_safe_rate": 0.0,
+      "selection_changed_safe_outcome_rate": 0.0
+    },
+    "full_features": {
+      "full_selected_safe_rate": 0.0,
+      "groups": 1621,
+      "masked_selected_safe_rate": 0.0,
+      "selection_changed_safe_outcome_rate": 0.0
+    }
+  },
+  "source_effects": {
+    "context_only": [
+      {
+        "mean_abs_delta": 0.1769589092686287,
+        "mean_delta_safe_probability": -0.1769589092686287,
+        "risk_increase_rate": 1.0,
+        "rows": 496,
+        "source_tool": "get_bills_for_customer"
+      },
+      {
+        "mean_abs_delta": 0.04607206116633591,
+        "mean_delta_safe_probability": -0.04607206116633591,
+        "risk_increase_rate": 1.0,
+        "rows": 188,
+        "source_tool": "get_customer_by_id"
+      },
+      {
+        "mean_abs_delta": 0.012508446814288922,
+        "mean_delta_safe_probability": -0.012508446814288922,
+        "risk_increase_rate": 1.0,
+        "rows": 4312,
+        "source_tool": "get_customer_by_phone"
+      },
+      {
+        "mean_abs_delta": 0.027467409637480275,
+        "mean_delta_safe_probability": 0.016110170307526185,
+        "risk_increase_rate": 0.6681715575620768,
+        "rows": 1772,
+        "source_tool": "get_data_usage"
+      },
+      {
+        "mean_abs_delta": 0.04856476359843961,
+        "mean_delta_safe_probability": 0.04786086671253553,
+        "risk_increase_rate": 0.046454391632056606,
+        "rows": 13002,
+        "source_tool": "get_details_by_id"
+      }
+    ],
+    "full_features": [
+      {
+        "mean_abs_delta": 0.09036414084800995,
+        "mean_delta_safe_probability": -0.09036414084800995,
+        "risk_increase_rate": 1.0,
+        "rows": 496,
+        "source_tool": "get_bills_for_customer"
+      },
+      {
+        "mean_abs_delta": 0.014850816138011978,
+        "mean_delta_safe_probability": -0.014850816138011978,
+        "risk_increase_rate": 1.0,
+        "rows": 188,
+        "source_tool": "get_customer_by_id"
+      },
+      {
+        "mean_abs_delta": 0.02878086485465365,
+        "mean_delta_safe_probability": 0.023501892988547317,
+        "risk_increase_rate": 0.11827458256029684,
+        "rows": 4312,
+        "source_tool": "get_customer_by_phone"
+      },
+      {
+        "mean_abs_delta": 0.013542936644580192,
+        "mean_delta_safe_probability": 0.013043611710717289,
+        "risk_increase_rate": 0.011286681715575621,
+        "rows": 1772,
+        "source_tool": "get_data_usage"
+      },
+      {
+        "mean_abs_delta": 0.03385336951602266,
+        "mean_delta_safe_probability": 0.033716998787463294,
+        "risk_increase_rate": 0.002153514843870174,
+        "rows": 13002,
+        "source_tool": "get_details_by_id"
+      }
+    ]
+  },
+  "test_task_groups": 23,
+  "train_task_groups": 68
+}
