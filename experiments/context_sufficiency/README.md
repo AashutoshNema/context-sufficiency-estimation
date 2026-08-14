@@ -4,6 +4,37 @@ The scripts in this directory replay completed telecom trajectories against reco
 environment state. The hard-candidate pass creates schema-valid entity and amount perturbations;
 the source-ablation pass removes one prior read call and its result from the observable context.
 
+## Reproduce From Upstream Benchmark
+
+The benchmark source and data are not vendored in this repository. The replication manifest pins
+the upstream `tau2-bench` repository to commit `668d3bcd135c02aa3438f987ef45735b7c163ee3` and
+uses a sparse checkout containing only the source, telecom data, and selected result trajectory.
+
+- Benchmark repository: https://github.com/sierra-research/tau2-bench
+- Telecom dataset: https://github.com/sierra-research/tau2-bench/tree/668d3bcd135c02aa3438f987ef45735b7c163ee3/data/tau2/domains/telecom
+- Input trajectory: https://github.com/sierra-research/tau2-bench/blob/668d3bcd135c02aa3438f987ef45735b7c163ee3/data/tau2/results/final/gpt-4.1-2025-04-14_telecom_default_gpt-4.1-2025-04-14_4trials.json
+
+Prepare the pinned benchmark environment, install its dependencies, then run the complete pipeline
+from this repository:
+
+```bash
+python3 experiments/context_sufficiency/prepare_benchmark.py
+uv sync --frozen --project .benchmark/tau2-bench --extra experiments
+uv run --project .benchmark/tau2-bench python \
+  experiments/context_sufficiency/replicate_telecom.py
+```
+
+The command downloads the sparse benchmark checkout, sets `TAU2_DATA_DIR` and `PYTHONPATH`,
+generates hard counterfactuals and source ablations, and runs both controller evaluations. Outputs
+are written under `experiments/context_sufficiency/artifacts/reproduction/`. Generated JSONL rows
+are intentionally ignored by Git; the scripts and pinned manifest are the replication record.
+
+To prepare the benchmark without running experiments:
+
+```bash
+python3 experiments/context_sufficiency/prepare_benchmark.py
+```
+
 Run hard candidates:
 
 ```bash

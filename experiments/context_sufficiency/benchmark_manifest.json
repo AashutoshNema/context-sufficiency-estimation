@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/sierra-research/tau2-bench.git",
+  "ref": "668d3bcd135c02aa3438f987ef45735b7c163ee3",
+  "result_file": "data/tau2/results/final/gpt-4.1-2025-04-14_telecom_default_gpt-4.1-2025-04-14_4trials.json",
+  "dataset_url": "https://github.com/sierra-research/tau2-bench/tree/668d3bcd135c02aa3438f987ef45735b7c163ee3/data/tau2/domains/telecom",
+  "result_url": "https://github.com/sierra-research/tau2-bench/blob/668d3bcd135c02aa3438f987ef45735b7c163ee3/data/tau2/results/final/gpt-4.1-2025-04-14_telecom_default_gpt-4.1-2025-04-14_4trials.json",
+  "sparse_paths": [
+    "src",
+    "data/tau2/domains/telecom",
+    "data/tau2/results/final/gpt-4.1-2025-04-14_telecom_default_gpt-4.1-2025-04-14_4trials.json",
+    "README.md",
+    "pyproject.toml",
+    "uv.lock",
+    ".python-version"
+  ]
+}
