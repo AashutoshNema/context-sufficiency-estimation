@@ -1,0 +1,59 @@
+# OpenRCA Telecom full-data research lock
+
+Date: 2026-08-14  
+Dataset: OpenRCA 1.0 Telecom, complete labeled split  
+Cases: 51 incidents across 11 labeled dates  
+Raw-data policy: raw telemetry is not committed; the local full bundle is approximately 16 GB.
+
+## Research question
+
+Does adding temporal change features and traces to telemetry produce a meaningful improvement in root-cause localization, supporting the context-sufficiency research direction?
+
+## Evaluation protocol
+
+The baseline uses only incident-window telemetry and does not read root-cause component, reason, or root timestamp for ranking. Metric anomalies are scored with robust median/MAD levels plus temporal deltas. Trace features are chunked call volume, latency, and failure rate. The evaluated candidate level is selected from the record (`node`, `pod`, or `service`); traces are directly joined only for pod candidates. Application and middleware telemetry are loaded for contextual reason features, but no topology mapping is assumed.
+
+The 30-minute window is anchored at the incident time exposed by the query. The official OpenRCA evaluator is used for the component/reason/time criteria where applicable.
+
+## Locked results
+
+| Metric | Result |
+|---|---:|
+| Full cases | 51 |
+| Metric + temporal component top-1 | 5/51 (9.8%) |
+| Metric + temporal component top-3 | 11/51 (21.6%) |
+| Metric + trace component top-1 | 7/51 (13.7%) |
+| Metric + trace component top-3 | 14/51 (27.5%) |
+| Official component criteria | 1/23 (4.3%) |
+| Official reason criteria | 13/33 (39.4%) |
+| Official time criteria | 0/31 (0.0%) |
+| Official combined mean score | 0.180 |
+| Official strict all-criteria accuracy | 6/51 (11.8%) |
+
+The official reason hit count is entirely explained by the CPU-fault majority pattern: all 19 CPU-fault cases are classified as CPU fault, while the four other reason classes receive 0 correct predictions. This is not evidence that telemetry-based reason inference is working.
+
+## Stratified localization
+
+| Root level | Cases | Top-1 | Top-3 | Reason hits |
+|---|---:|---:|---:|---:|
+| node | 20 | 0/20 | 1/20 | 0/20 |
+| pod | 19 | 7/19 | 13/19 | 19/19 |
+| service | 12 | 0/12 | 0/12 | 0/12 |
+
+The apparent gain is concentrated in pod-level CPU incidents. Trace signals do not produce a correct trace-only top-1 component in the 19 pod cases; the combined gain comes from re-ranking metric candidates, not from reliable trace-to-component attribution.
+
+## Comparison and conclusion
+
+The earlier archived LLM baseline on the same 51-case task has mean score 0.281 and strict accuracy 12/51 (23.5%). The current transparent telemetry baseline reaches mean score 0.180 and strict accuracy 6/51 (11.8%), so it does not improve end-to-end RCA performance.
+
+**Conclusion:** this experiment does not validate the hypothesis that adding the currently available telemetry context is sufficient for general OpenRCA root-cause analysis. It provides a narrow positive signal for pod-level CPU localization, but the full result is negative for broad RCA: service/node topology is unresolved, traces are not yet mapped to root components, reason inference collapses to a majority rule, and occurrence-time inference fails the official tolerance.
+
+The research direction remains viable only in a narrower, explicitly topology-aware form: context sufficiency should be tested as a question of whether the required modality, entity mapping, and time resolution are present for each RCA criterion. We should not scale to the original uncurated OpenRCA bundle as the next step until a topology-aware evaluator and leakage-safe time/reason models are implemented and beat this locked baseline on held-out cases.
+
+## Reproducibility artifacts
+
+- `experiments/openrca_research_analysis.py`: full 51-case analysis runner.
+- `artifacts/openrca_telecom_full_analysis.csv`: per-case predictions and feature summaries; no raw telemetry.
+- `experiments/openrca_temporal_trace_baseline.py`: underlying metric/trace scoring implementation.
+
+
