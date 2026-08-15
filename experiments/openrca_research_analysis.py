@@ -1,0 +1,107 @@
+"""Full OpenRCA Telecom research audit.
+
+Produces per-case predictions and ablations without using root-cause labels for
+ranking.  Record datetime is used only as the incident-window anchor, matching
+the information exposed by the OpenRCA query.
+"""
+from pathlib import Path
+import argparse, json, re
+import numpy as np
+import pandas as pd
+
+from openrca_temporal_trace_baseline import metric_features, metric_scores, trace_scores, SOURCE_BY_LEVEL
+
+REASONS = ["CPU fault", "network delay", "db connection limit", "network loss", "db close"]
+
+def app_features(path, start, end):
+    try:
+        x = pd.read_csv(path)
+        x["time"] = pd.to_datetime(x["startTime"], unit="ms") + pd.Timedelta(hours=8)
+        x = x[x.time.between(start, end, inclusive="left")]
+        if x.empty: return {}
+        for c in ["avg_time", "num", "succee_num", "succee_rate"]: x[c] = pd.to_numeric(x[c], errors="coerce")
+        return {"calls": float(x.num.sum()), "latency": float(np.average(x.avg_time.fillna(0), weights=x.num.fillna(0)+1e-9)), "failure_rate": float(1-x.succee_num.sum()/max(x.num.sum(),1))}
+    except Exception: return {}
+
+def middleware_features(path, start, end):
+    try:
+        x = pd.read_csv(path)
+        x["value_num"] = pd.to_numeric(x.value, errors="coerce")
+        x["time"] = pd.to_datetime(x.timestamp, unit="ms") + pd.Timedelta(hours=8)
+        x = x[x.time.between(start, end, inclusive="left")]
+        if x.empty: return {}
+        g = x.groupby("name").value_num.mean()
+        out = {"redis_rejected": float(g.get("rejected_connections", 0)), "redis_blocked": float(g.get("blocked_clients", 0)), "redis_clients": float(g.get("connected_clients", 0)), "redis_ping": float(g.get("redis_ping", 0))}
+        return out
+    except Exception: return {}
+
+def reason_guess(row):
+    # Conservative, interpretable rules over incident-window telemetry.
+    names = str(row.get("metric_names", "")).lower()
+    if "container_cpu_used" in names or "cpu_util" in names or "processor_load" in names:
+        return "CPU fault"
+    if row.get("trace_failure_rate", 0) > 0.05:
+        return "network loss"
+    if row.get("trace_latency", 0) > 0:
+        return "network delay"
+    if "session" in names or "connect" in names or row.get("redis_clients", 0) > 0:
+        return "db connection limit"
+    return "db close"
+
+def scoring_points_to_prediction(component, reason, time):
+    return json.dumps({"root cause occurrence datetime": time, "root cause component": component, "root cause reason": reason})
+
+def run(root, out, trace_weight=0.5):
+    telecom = root / "Telecom"
+    records = pd.read_csv(telecom / "record.csv")
+    records["root_time"] = pd.to_datetime(records.datetime)
+    records["case_id"] = records.index
+    rows = []
+    for date, records_date in records.groupby(records.root_time.dt.strftime("%Y-%m-%d"), sort=True):
+        records_date = records_date.reset_index(drop=True)
+        date_dir = telecom / "telemetry" / date.replace("-", "_")
+        windows = [(r.root_time.floor("30min"), r.root_time.floor("30min") + pd.Timedelta(minutes=30)) for r in records_date.itertuples()]
+        print(f"processing {date} n={len(records_date)}", flush=True)
+        traces = trace_scores(date_dir / "trace" / "trace_span.csv", windows)
+        cache = {level: metric_features(date_dir / "metric" / f) for level, f in SOURCE_BY_LEVEL.items()}
+        for i, r in enumerate(records_date.itertuples()):
+            start, end = windows[i]
+            metric = metric_scores(cache[r.level], start, end)
+            tf = traces[i]
+            candidates = set(metric.index)
+            if r.level == "pod" and not tf.empty: candidates.update(tf.index)
+            score = pd.DataFrame(index=sorted(candidates))
+            score["metric"] = metric.reindex(score.index).fillna(0)
+            score["trace"] = tf.score.reindex(score.index).fillna(0) if r.level == "pod" and not tf.empty else 0
+            score["combined"] = score.metric + trace_weight * score.trace
+            ranked = {m: score[m].sort_values(ascending=False).index.tolist() for m in ["metric", "trace", "combined"]}
+            top = ranked["combined"][0] if ranked["combined"] else (ranked["metric"][0] if ranked["metric"] else "")
+            top_metric = ranked["metric"][0] if ranked["metric"] else ""
+            # Feature summary for a transparent reason baseline.
+            mf = cache[r.level]
+            mw = mf[mf.time.between(start, end, inclusive="left")]
+            names = " ".join(mw.name.astype(str).unique())
+            app = app_features(date_dir / "metric" / "metric_app.csv", start, end)
+            mid = middleware_features(date_dir / "metric" / "metric_middleware.csv", start, end)
+            tr = tf.iloc[0].to_dict() if not tf.empty else {}
+            feature = {"metric_names": names, "trace_failure_rate": float(tr.get("failure_rate",0)), "trace_latency": float(tr.get("mean_latency",0)), **app, **mid}
+            reason = reason_guess(feature)
+            # Time is an explicit baseline: incident-window start. It is not
+            # allowed to use record.timestamp (the root-cause label).
+            # Estimate occurrence time from the strongest observed metric
+            # excursion for the selected component; do not use the label's
+            # root timestamp.
+            selected = mw[mw.cmdb_id.astype(str) == str(top)].copy()
+            if not selected.empty:
+                selected["event_score"] = selected.level_score + selected.change_score
+                pred_time = selected.sort_values(["event_score", "time"], ascending=[False, True]).iloc[0].time.strftime("%Y-%m-%d %H:%M:%S")
+            else:
+                pred_time = start.strftime("%Y-%m-%d %H:%M:%S")
+            rows.append({"record_index": int(r.case_id), "date": date, "datetime": r.datetime, "level": r.level, "actual_component": r.component, "actual_reason": r.reason, "actual_root_timestamp": r.timestamp, "metric_top1": top_metric, "metric_top3": json.dumps(ranked["metric"][:3]), "trace_top1": ranked["trace"][0] if ranked["trace"] else "", "combined_top1": top, "combined_top3": json.dumps(ranked["combined"][:3]), "pred_reason": reason, "pred_time": pred_time, **{f"feat_{k}":v for k,v in feature.items() if k != "metric_names"}, "metric_names": names})
+    result = pd.DataFrame(rows).sort_values("record_index")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    result.to_csv(out, index=False)
+    print(f"wrote {out} rows={len(result)}")
+
+if __name__ == "__main__":
+    p=argparse.ArgumentParser(); p.add_argument("--dataset-root", type=Path, default=Path("openrca/dataset/openrca-telecom-full")); p.add_argument("--out", type=Path, default=Path("artifacts/openrca_telecom_full_analysis.csv")); p.add_argument("--trace-weight", type=float, default=.5); a=p.parse_args(); run(a.dataset_root,a.out,a.trace_weight)

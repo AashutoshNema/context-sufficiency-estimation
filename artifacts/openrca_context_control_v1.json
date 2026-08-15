@@ -1,0 +1,651 @@
+{
+  "dataset": "OpenRCA 1.0 Telecom derived locked artifact",
+  "action": "return a top-3 root-component triage shortlist",
+  "split": "leave-one-telemetry-date-out; two preceding dates calibrate threshold",
+  "folds": [
+    {
+      "test": "2020-04-11",
+      "validation": [
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "train": [
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29"
+      ],
+      "threshold": 0.30000000000000004
+    },
+    {
+      "test": "2020-05-22",
+      "validation": [
+        "2020-04-11",
+        "2020-05-31"
+      ],
+      "train": [
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30"
+      ],
+      "threshold": 0.7000000000000001
+    },
+    {
+      "test": "2020-05-23",
+      "validation": [
+        "2020-04-11",
+        "2020-05-22"
+      ],
+      "train": [
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.75
+    },
+    {
+      "test": "2020-05-24",
+      "validation": [
+        "2020-05-22",
+        "2020-05-23"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.8
+    },
+    {
+      "test": "2020-05-25",
+      "validation": [
+        "2020-05-23",
+        "2020-05-24"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.7000000000000001
+    },
+    {
+      "test": "2020-05-26",
+      "validation": [
+        "2020-05-24",
+        "2020-05-25"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-27",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.45000000000000007
+    },
+    {
+      "test": "2020-05-27",
+      "validation": [
+        "2020-05-25",
+        "2020-05-26"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-28",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.6
+    },
+    {
+      "test": "2020-05-28",
+      "validation": [
+        "2020-05-26",
+        "2020-05-27"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-29",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.8
+    },
+    {
+      "test": "2020-05-29",
+      "validation": [
+        "2020-05-27",
+        "2020-05-28"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-30",
+        "2020-05-31"
+      ],
+      "threshold": 0.85
+    },
+    {
+      "test": "2020-05-30",
+      "validation": [
+        "2020-05-28",
+        "2020-05-29"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-31"
+      ],
+      "threshold": 0.35
+    },
+    {
+      "test": "2020-05-31",
+      "validation": [
+        "2020-05-29",
+        "2020-05-30"
+      ],
+      "train": [
+        "2020-04-11",
+        "2020-05-22",
+        "2020-05-23",
+        "2020-05-24",
+        "2020-05-25",
+        "2020-05-26",
+        "2020-05-27",
+        "2020-05-28"
+      ],
+      "threshold": 0.35
+    }
+  ],
+  "counts": {
+    "incidents": 51,
+    "dates": 11,
+    "test_episodes": 306
+  },
+  "interventions": [
+    "canonical",
+    "trace_unavailable",
+    "stale_metric",
+    "wrong_entity_metric",
+    "high_trace_cost",
+    "temporal_gap"
+  ],
+  "sufficiency_model": {
+    "type": "L2 logistic regression",
+    "median_threshold": 0.7000000000000001,
+    "test_state_AUROC": 0.7519406246226301,
+    "test_state_AUPRC": 0.45157109226974906,
+    "test_state_Brier": 0.20101600765098301,
+    "test_state_ECE": 0.16659790374779146,
+    "positive_rate": 0.30124777183600715
+  },
+  "source_model": {
+    "type": "separate L2 logistic source-outcome ranker",
+    "training_unit": "masked state plus unobserved source registry entry",
+    "selection": "predicted acceptable-action probability minus 0.03 * source cost"
+  },
+  "policy_summary": [
+    {
+      "policy": "always_fetch",
+      "episodes": 306,
+      "acceptable_rate": 0.22875816993464052,
+      "abstention_rate": 0.0,
+      "mean_calls": 4.833333333333333,
+      "mean_cost": 7.466666666666668,
+      "mean_latency": 10.0
+    },
+    {
+      "policy": "fixed_top1",
+      "episodes": 306,
+      "acceptable_rate": 0.20915032679738563,
+      "abstention_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 1.0,
+      "mean_latency": 1.0
+    },
+    {
+      "policy": "freshness_only",
+      "episodes": 306,
+      "acceptable_rate": 0.21568627450980393,
+      "abstention_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 0.8,
+      "mean_latency": 1.0
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.4117647058823529,
+      "abstention_rate": 0.19607843137254902,
+      "mean_calls": 0.9477124183006536,
+      "mean_cost": 1.4640522875816993,
+      "mean_latency": 1.9607843137254901
+    },
+    {
+      "policy": "no_context",
+      "episodes": 306,
+      "acceptable_rate": 0.5686274509803921,
+      "abstention_rate": 0.0,
+      "mean_calls": 0.0,
+      "mean_cost": 0.0,
+      "mean_latency": 0.0
+    },
+    {
+      "policy": "oracle",
+      "episodes": 306,
+      "acceptable_rate": 0.8202614379084967,
+      "abstention_rate": 0.17973856209150327,
+      "mean_calls": 1.130718954248366,
+      "mean_cost": 1.6470588235294117,
+      "mean_latency": 2.196078431372549
+    },
+    {
+      "policy": "random_top1",
+      "episodes": 306,
+      "acceptable_rate": 0.4215686274509804,
+      "abstention_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 1.5568627450980392,
+      "mean_latency": 2.0751633986928106
+    },
+    {
+      "policy": "source_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.5686274509803921,
+      "abstention_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 3.0,
+      "mean_latency": 4.0
+    }
+  ],
+  "by_condition": [
+    {
+      "policy": "always_fetch",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.27450980392156865,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.27450980392156865,
+      "mean_cost": 12.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.19607843137254902,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 4.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.19607843137254902,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.19607843137254902,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_top1",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.19607843137254902,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "freshness_only",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.21568627450980393,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 1.3333333333333333
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 2.5098039215686274
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 1.3333333333333333
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 1.3333333333333333
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 0.9411764705882353
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 1.3333333333333333
+    },
+    {
+      "policy": "no_context",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.8431372549019608,
+      "mean_cost": 1.43921568627451
+    },
+    {
+      "policy": "oracle",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.8431372549019608,
+      "mean_cost": 2.850980392156863
+    },
+    {
+      "policy": "oracle",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.8431372549019608,
+      "mean_cost": 1.3215686274509806
+    },
+    {
+      "policy": "oracle",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.7843137254901961,
+      "mean_cost": 1.6627450980392156
+    },
+    {
+      "policy": "oracle",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.7647058823529411,
+      "mean_cost": 1.2862745098039214
+    },
+    {
+      "policy": "oracle",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.8431372549019608,
+      "mean_cost": 1.3215686274509806
+    },
+    {
+      "policy": "random_top1",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.49019607843137253,
+      "mean_cost": 1.3470588235294119
+    },
+    {
+      "policy": "random_top1",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.43137254901960786,
+      "mean_cost": 2.709803921568627
+    },
+    {
+      "policy": "random_top1",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.39215686274509803,
+      "mean_cost": 1.3549019607843136
+    },
+    {
+      "policy": "random_top1",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.4117647058823529,
+      "mean_cost": 1.3254901960784313
+    },
+    {
+      "policy": "random_top1",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.43137254901960786,
+      "mean_cost": 1.2647058823529411
+    },
+    {
+      "policy": "random_top1",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.37254901960784315,
+      "mean_cost": 1.3392156862745097
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "canonical",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "high_trace_cost",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "stale_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "temporal_gap",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "trace_unavailable",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "wrong_entity_metric",
+      "episodes": 51,
+      "acceptable_rate": 0.5686274509803921,
+      "mean_cost": 3.0
+    }
+  ],
+  "limitations": [
+    "51 incidents, evaluated with leave-one-date-out folds",
+    "source observations are derived summaries rather than raw tool responses",
+    "application and middleware sources lack component topology mappings",
+    "human probing, authorization, policy sources, and natural source conflicts are absent",
+    "action is component top-3 triage, not full component/reason/time RCA"
+  ]
+}

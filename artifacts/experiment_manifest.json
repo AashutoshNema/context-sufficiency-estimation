@@ -1,0 +1,20 @@
+{
+  "manifest_version": 1,
+  "date": "2026-08-14",
+  "global_rules": {
+    "hidden_world_fixed_within_pair": true,
+    "hidden_intervention_metadata_exposed_to_agent": false,
+    "default_random_seed": 42,
+    "raw_openrca_telemetry_committed": false,
+    "tau2_revision": "668d3bcd135c02aa3438f987ef45735b7c163ee3"
+  },
+  "experiments": [
+    {"name":"openrca_context_control_v2","cases":51,"paired_conditions":6,"episodes":306,"conditions":["canonical","trace_unavailable","high_trace_cost","stale_metric","wrong_entity_metric","temporal_gap"],"split":"leave-one-telemetry-date-out; preceding two dates calibrate","seed":42},
+    {"name":"openrca_temporal_versions","cases":51,"versions_per_case":4,"conditions":["previous_30m","current_10m","current_30m","history_60m"],"split":"leave-one-telemetry-date-out","seed":null},
+    {"name":"tau2_hard_counterfactuals","decision_prefixes":2007,"candidate_rows":23661,"hard_safe_rate":0.03829189084387572,"seed":42},
+    {"name":"tau2_source_ablation","paired_rows":116791,"decision_prefixes":1723,"intervention":"remove one prior read call and result while preserving hidden state","seed":42},
+    {"name":"tau2_probing_escalation","tasks":114,"paired_conditions":6,"episodes":684,"conditions":["canonical","user_unavailable","system_unavailable","user_delayed","system_expensive","ambiguous_user"],"split":"5-fold stratified out-of-fold","seed":42},
+    {"name":"tau2_entity_context","decision_condition_groups":5682,"conditions":["canonical","single_asset","connected_assets","independent_assets","ambiguous_asset","missing_target_evidence","cross_asset"],"split":"5-fold held-out task groups","seed":42},
+    {"name":"tau2_source_semantics","tasks":114,"paired_conditions":6,"episodes":684,"conditions":["canonical","policy_unavailable","procedure_unavailable","history_unavailable","irrelevant_inventory","prediction_conflict"],"split":"5-fold stratified out-of-fold","seed":42}
+  ]
+}

@@ -1,0 +1,518 @@
+{
+  "dataset": "Tau2 Telecom fixed tasks with controlled heterogeneous source registry",
+  "source_roles": {
+    "observation": "user/device fact",
+    "record": "structured telecom record",
+    "procedure": "troubleshooting workflow",
+    "policy": "authorization or escalation rule",
+    "history": "billing/usage/contract history",
+    "prediction": "non-authoritative model recommendation"
+  },
+  "conditions": [
+    "canonical",
+    "policy_unavailable",
+    "procedure_unavailable",
+    "history_unavailable",
+    "irrelevant_inventory",
+    "prediction_conflict"
+  ],
+  "split": "5-fold out-of-fold stratified by required source-role set",
+  "classification": {
+    "observation": {
+      "AUROC": 0.9308510638297872,
+      "AUPRC": 0.9855223076719681,
+      "positive_rate": 0.8245614035087719
+    },
+    "record": {
+      "AUROC": 0.7409105797576154,
+      "AUPRC": 0.7818546461421125,
+      "positive_rate": 0.6228070175438597
+    },
+    "procedure": {
+      "AUROC": 0.9308510638297872,
+      "AUPRC": 0.9855223076719681,
+      "positive_rate": 0.8245614035087719
+    },
+    "policy": {
+      "AUROC": 0.6048733874820831,
+      "AUPRC": 0.8416368109333293,
+      "positive_rate": 0.7982456140350878
+    },
+    "history": {
+      "AUROC": 0.5155584670815592,
+      "AUPRC": 0.642121943421402,
+      "positive_rate": 0.6228070175438597
+    }
+  },
+  "policies": [
+    {
+      "policy": "always_all",
+      "episodes": 684,
+      "resolution_rate": 0.6257309941520468,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.3742690058479532,
+      "mean_calls": 5.5,
+      "mean_cost": 6.333333333333333,
+      "irrelevant_call_rate": 0.21477937267410951,
+      "prediction_overtrust_rate": 0.0,
+      "conflict_resolution_rate": 0.71
+    },
+    {
+      "policy": "naive_prediction",
+      "episodes": 684,
+      "resolution_rate": 0.03216374269005848,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9678362573099415,
+      "mean_calls": 1.8625730994152048,
+      "mean_cost": 2.051169590643275,
+      "irrelevant_call_rate": 0.08320251177394035,
+      "prediction_overtrust_rate": 0.29239766081871343,
+      "conflict_resolution_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "episodes": 684,
+      "resolution_rate": 0.6257309941520468,
+      "coverage": 0.6257309941520468,
+      "unsafe_action_rate": 0.0,
+      "mean_calls": 3.318713450292398,
+      "mean_cost": 4.25,
+      "irrelevant_call_rate": 0.0,
+      "prediction_overtrust_rate": 0.0,
+      "conflict_resolution_rate": 1.0
+    },
+    {
+      "policy": "prediction_only",
+      "episodes": 684,
+      "resolution_rate": 0.03216374269005848,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9678362573099415,
+      "mean_calls": 1.0,
+      "mean_cost": 0.5,
+      "irrelevant_call_rate": 0.0,
+      "prediction_overtrust_rate": 0.29239766081871343,
+      "conflict_resolution_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "episodes": 684,
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_calls": 3.0,
+      "mean_cost": 3.6271929824561404,
+      "irrelevant_call_rate": 0.15789473684210525,
+      "prediction_overtrust_rate": 0.0,
+      "conflict_resolution_rate": 0.39
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "episodes": 684,
+      "resolution_rate": 0.5292397660818714,
+      "coverage": 0.5292397660818713,
+      "unsafe_action_rate": 0.0,
+      "mean_calls": 4.637426900584796,
+      "mean_cost": 5.333333333333333,
+      "irrelevant_call_rate": 0.12862547288776796,
+      "prediction_overtrust_rate": 0.0,
+      "conflict_resolution_rate": 1.0
+    },
+    {
+      "policy": "semantic_router",
+      "episodes": 684,
+      "resolution_rate": 0.5292397660818714,
+      "coverage": 0.5292397660818713,
+      "unsafe_action_rate": 0.0,
+      "mean_calls": 3.6330409356725144,
+      "mean_cost": 4.824561403508772,
+      "irrelevant_call_rate": 0.16297786720321933,
+      "prediction_overtrust_rate": 0.0,
+      "conflict_resolution_rate": 1.0
+    }
+  ],
+  "by_condition": [
+    {
+      "policy": "always_all",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 7.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.37719298245614036,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6228070175438597,
+      "mean_cost": 5.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 7.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.20175438596491227,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.7982456140350878,
+      "mean_cost": 6.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "prediction_conflict",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 7.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.8245614035087719,
+      "mean_cost": 6.0,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "canonical",
+      "resolution_rate": 0.043859649122807015,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.956140350877193,
+      "mean_cost": 2.1491228070175437,
+      "prediction_overtrust_rate": 0.14912280701754385
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 2.074561403508772,
+      "prediction_overtrust_rate": 0.21929824561403508
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 2.192982456140351,
+      "prediction_overtrust_rate": 0.14912280701754385
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 2.1535087719298245,
+      "prediction_overtrust_rate": 0.20175438596491227
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "prediction_conflict",
+      "resolution_rate": 0.008771929824561403,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9912280701754386,
+      "mean_cost": 1.5789473684210527,
+      "prediction_overtrust_rate": 0.8157894736842105
+    },
+    {
+      "policy": "naive_prediction",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 2.1578947368421053,
+      "prediction_overtrust_rate": 0.21929824561403508
+    },
+    {
+      "policy": "oracle",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 4.728070175438597,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.37719298245614036,
+      "coverage": 0.3771929824561403,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 3.482456140350877,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 4.728070175438597,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.20175438596491227,
+      "coverage": 0.20175438596491224,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 3.9298245614035086,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "prediction_conflict",
+      "resolution_rate": 1.0,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 4.728070175438597,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 0.17543859649122806,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 3.9035087719298245,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "canonical",
+      "resolution_rate": 0.043859649122807015,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.956140350877193,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.14912280701754385
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.21929824561403508
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.14912280701754385
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.20175438596491227
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "prediction_conflict",
+      "resolution_rate": 0.008771929824561403,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9912280701754386,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.8157894736842105
+    },
+    {
+      "policy": "prediction_only",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.03508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.9649122807017544,
+      "mean_cost": 0.5,
+      "prediction_overtrust_rate": 0.21929824561403508
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "canonical",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "prediction_conflict",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "relevance_top3",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.6491228070175439,
+      "mean_cost": 3.6271929824561404,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "canonical",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.916666666666667,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 0.3508771929824561,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 3.9517543859649122,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.916666666666667,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 0.17543859649122806,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.092105263157895,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "prediction_conflict",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.934210526315789,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_plus_prediction",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 0.17543859649122806,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.18859649122807,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "canonical",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.416666666666667,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "history_unavailable",
+      "resolution_rate": 0.3508771929824561,
+      "coverage": 0.3508771929824561,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 3.4517543859649122,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "irrelevant_inventory",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.416666666666667,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "policy_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 0.17543859649122806,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 4.574561403508772,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "prediction_conflict",
+      "resolution_rate": 0.8245614035087719,
+      "coverage": 0.8245614035087719,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 5.416666666666667,
+      "prediction_overtrust_rate": 0.0
+    },
+    {
+      "policy": "semantic_router",
+      "condition": "procedure_unavailable",
+      "resolution_rate": 0.17543859649122806,
+      "coverage": 0.17543859649122806,
+      "unsafe_action_rate": 0.0,
+      "mean_cost": 4.671052631578948,
+      "prediction_overtrust_rate": 0.0
+    }
+  ],
+  "limitations": [
+    "Required roles are derived from benchmark expected actions and selected fault families.",
+    "Prediction correctness and conflicts are seeded interventions rather than archived model outputs.",
+    "Policy/procedure contents are represented by role availability, not full text reasoning."
+  ]
+}

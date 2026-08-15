@@ -1,0 +1,777 @@
+{
+  "dataset": "Tau2 Telecom tasks at pinned benchmark manifest revision",
+  "hidden_state": "original task and expected action roles",
+  "observation": "ticket, reason for call, and public task purpose",
+  "roles": {
+    "user": "ask user/device to perform or report evidence",
+    "system": "query or act on structured telecom system",
+    "human": "support-agent escalation"
+  },
+  "conditions": [
+    "canonical",
+    "user_unavailable",
+    "system_unavailable",
+    "user_delayed",
+    "system_expensive",
+    "ambiguous_user"
+  ],
+  "split": "5-fold stratified out-of-fold by required role set",
+  "classification": {
+    "user": {
+      "AUROC": 0.9351063829787234,
+      "AUPRC": 0.9861699967734732,
+      "positive_rate": 0.8245614035087719
+    },
+    "system": {
+      "AUROC": 0.7554864068129707,
+      "AUPRC": 0.7705767727766567,
+      "positive_rate": 0.6228070175438597
+    },
+    "human": {
+      "AUROC": 0.9351063829787235,
+      "AUPRC": 0.6145024630541873,
+      "positive_rate": 0.17543859649122806
+    }
+  },
+  "policies": [
+    {
+      "policy": "always_all",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 2.6666666666666665,
+      "mean_cost": 13.166666666666666,
+      "mean_turns": 2.6666666666666665,
+      "user_burden": 0.8333333333333334,
+      "probe_precision": 0.8306530214424951,
+      "escalation_rate": 1.0,
+      "escalation_precision": 0.4166666666666667
+    },
+    {
+      "policy": "fixed_human",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 10.0,
+      "mean_turns": 1.0,
+      "user_burden": 0.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0,
+      "escalation_precision": 0.4166666666666667
+    },
+    {
+      "policy": "fixed_system",
+      "episodes": 684,
+      "resolution_rate": 0.0,
+      "unsafe_or_unresolved_rate": 1.0,
+      "mean_calls": 0.8333333333333334,
+      "mean_cost": 1.5,
+      "mean_turns": 0.8333333333333334,
+      "user_burden": 0.0,
+      "probe_precision": 0.5190058479532164,
+      "escalation_rate": 0.0,
+      "escalation_precision": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "episodes": 684,
+      "resolution_rate": 0.14912280701754385,
+      "unsafe_or_unresolved_rate": 0.8508771929824561,
+      "mean_calls": 0.8333333333333334,
+      "mean_cost": 1.6666666666666667,
+      "mean_turns": 0.8333333333333334,
+      "user_burden": 0.8333333333333334,
+      "probe_precision": 0.6140350877192983,
+      "escalation_rate": 0.0,
+      "escalation_precision": 0.0
+    },
+    {
+      "policy": "gate_0.3",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 1.8114035087719298,
+      "mean_cost": 8.048245614035087,
+      "mean_turns": 1.8114035087719298,
+      "user_burden": 0.6213450292397661,
+      "probe_precision": 0.9269005847953217,
+      "escalation_rate": 0.5687134502923976,
+      "escalation_precision": 0.7326478149100257
+    },
+    {
+      "policy": "gate_0.4",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 1.8114035087719298,
+      "mean_cost": 8.048245614035087,
+      "mean_turns": 1.8114035087719298,
+      "user_burden": 0.6213450292397661,
+      "probe_precision": 0.9269005847953217,
+      "escalation_rate": 0.5687134502923976,
+      "escalation_precision": 0.7326478149100257
+    },
+    {
+      "policy": "gate_0.5",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 1.8114035087719298,
+      "mean_cost": 8.048245614035087,
+      "mean_turns": 1.8114035087719298,
+      "user_burden": 0.6213450292397661,
+      "probe_precision": 0.9269005847953217,
+      "escalation_rate": 0.5687134502923976,
+      "escalation_precision": 0.7326478149100257
+    },
+    {
+      "policy": "gate_0.6",
+      "episodes": 684,
+      "resolution_rate": 0.9371345029239766,
+      "unsafe_or_unresolved_rate": 0.06286549707602339,
+      "mean_calls": 1.6710526315789473,
+      "mean_cost": 7.603801169590644,
+      "mean_turns": 1.6710526315789473,
+      "user_burden": 0.6213450292397661,
+      "probe_precision": 0.952485380116959,
+      "escalation_rate": 0.5453216374269005,
+      "escalation_precision": 0.739946380697051
+    },
+    {
+      "policy": "learned_top1",
+      "episodes": 684,
+      "resolution_rate": 0.2733918128654971,
+      "unsafe_or_unresolved_rate": 0.7266081871345029,
+      "mean_calls": 1.0146198830409356,
+      "mean_cost": 3.037280701754386,
+      "mean_turns": 1.0146198830409356,
+      "user_burden": 0.25584795321637427,
+      "probe_precision": 0.7763157894736842,
+      "escalation_rate": 0.21052631578947367,
+      "escalation_precision": 0.7777777777777778
+    },
+    {
+      "policy": "learned_top2",
+      "episodes": 684,
+      "resolution_rate": 0.9839181286549707,
+      "unsafe_or_unresolved_rate": 0.01608187134502924,
+      "mean_calls": 2.043859649122807,
+      "mean_cost": 8.150584795321638,
+      "mean_turns": 2.043859649122807,
+      "user_burden": 0.7032163742690059,
+      "probe_precision": 0.831140350877193,
+      "escalation_rate": 0.5497076023391813,
+      "escalation_precision": 0.7287234042553191
+    },
+    {
+      "policy": "none",
+      "episodes": 684,
+      "resolution_rate": 0.0,
+      "unsafe_or_unresolved_rate": 1.0,
+      "mean_calls": 0.0,
+      "mean_cost": 0.0,
+      "mean_turns": 0.0,
+      "user_burden": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0,
+      "escalation_precision": 0.0
+    },
+    {
+      "policy": "oracle",
+      "episodes": 684,
+      "resolution_rate": 1.0,
+      "unsafe_or_unresolved_rate": 0.0,
+      "mean_calls": 1.695906432748538,
+      "mean_cost": 7.206140350877193,
+      "mean_turns": 1.695906432748538,
+      "user_burden": 0.6871345029239766,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.489766081871345,
+      "escalation_precision": 0.8507462686567164
+    }
+  ],
+  "by_condition": [
+    {
+      "policy": "always_all",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 12.5,
+      "probe_precision": 0.8128654970760234,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 12.5,
+      "probe_precision": 0.8157894736842105,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 16.5,
+      "probe_precision": 0.8157894736842105,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.5,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 15.0,
+      "probe_precision": 0.8157894736842105,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "always_all",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.0,
+      "probe_precision": 0.8114035087719298,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_human",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.0,
+      "mean_cost": 1.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "canonical",
+      "resolution_rate": 0.0,
+      "mean_cost": 1.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "system_expensive",
+      "resolution_rate": 0.0,
+      "mean_cost": 5.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "system_unavailable",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "user_delayed",
+      "resolution_rate": 0.0,
+      "mean_cost": 1.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_system",
+      "condition": "user_unavailable",
+      "resolution_rate": 0.0,
+      "mean_cost": 1.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.08771929824561403,
+      "mean_cost": 1.5,
+      "probe_precision": 0.38596491228070173,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "canonical",
+      "resolution_rate": 0.20175438596491227,
+      "mean_cost": 1.5,
+      "probe_precision": 0.8245614035087719,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "system_expensive",
+      "resolution_rate": 0.20175438596491227,
+      "mean_cost": 1.5,
+      "probe_precision": 0.8245614035087719,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "system_unavailable",
+      "resolution_rate": 0.20175438596491227,
+      "mean_cost": 1.5,
+      "probe_precision": 0.8245614035087719,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "user_delayed",
+      "resolution_rate": 0.20175438596491227,
+      "mean_cost": 4.0,
+      "probe_precision": 0.8245614035087719,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "fixed_user",
+      "condition": "user_unavailable",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 8.355263157894736,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.6491228070175439
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 4.407894736842105,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 7.390350877192983,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.118421052631579,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 6.271929824561403,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.3",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.74561403508772,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 8.355263157894736,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.6491228070175439
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 4.407894736842105,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 7.390350877192983,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.118421052631579,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 6.271929824561403,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.4",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.74561403508772,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 8.355263157894736,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.6491228070175439
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 4.407894736842105,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 7.390350877192983,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.118421052631579,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 6.271929824561403,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.5",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.74561403508772,
+      "probe_precision": 0.9122807017543859,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.9385964912280702,
+      "mean_cost": 8.214912280701755,
+      "probe_precision": 0.9429824561403509,
+      "escalation_rate": 0.6491228070175439
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "canonical",
+      "resolution_rate": 0.9210526315789473,
+      "mean_cost": 4.267543859649122,
+      "probe_precision": 0.9429824561403509,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "system_expensive",
+      "resolution_rate": 0.9210526315789473,
+      "mean_cost": 6.68859649122807,
+      "probe_precision": 0.9429824561403509,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "system_unavailable",
+      "resolution_rate": 0.9210526315789473,
+      "mean_cost": 9.714912280701755,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.8596491228070176
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "user_delayed",
+      "resolution_rate": 0.9210526315789473,
+      "mean_cost": 6.131578947368421,
+      "probe_precision": 0.9429824561403509,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "gate_0.6",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.605263157894736,
+      "probe_precision": 0.9429824561403509,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.13157894736842105,
+      "mean_cost": 1.9956140350877194,
+      "probe_precision": 0.7017543859649122,
+      "escalation_rate": 0.08771929824561403
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "canonical",
+      "resolution_rate": 0.07894736842105263,
+      "mean_cost": 1.118421052631579,
+      "probe_precision": 0.7017543859649122,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "system_expensive",
+      "resolution_rate": 0.3508771929824561,
+      "mean_cost": 2.991228070175439,
+      "probe_precision": 0.9298245614035088,
+      "escalation_rate": 0.17543859649122806
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "system_unavailable",
+      "resolution_rate": 0.8421052631578947,
+      "mean_cost": 7.9868421052631575,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.7631578947368421
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "user_delayed",
+      "resolution_rate": 0.0,
+      "mean_cost": 1.0,
+      "probe_precision": 0.6228070175438597,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "learned_top1",
+      "condition": "user_unavailable",
+      "resolution_rate": 0.23684210526315788,
+      "mean_cost": 3.1315789473684212,
+      "probe_precision": 0.7017543859649122,
+      "escalation_rate": 0.23684210526315788
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.9736842105263158,
+      "mean_cost": 8.37719298245614,
+      "probe_precision": 0.7982456140350878,
+      "escalation_rate": 0.6140350877192983
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "canonical",
+      "resolution_rate": 0.9298245614035088,
+      "mean_cost": 3.991228070175439,
+      "probe_precision": 0.7763157894736842,
+      "escalation_rate": 0.17543859649122806
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 7.771929824561403,
+      "probe_precision": 0.8245614035087719,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.236842105263158,
+      "probe_precision": 0.9649122807017544,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 6.526315789473684,
+      "probe_precision": 0.8114035087719298,
+      "escalation_rate": 0.2543859649122807
+    },
+    {
+      "policy": "learned_top2",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 11.0,
+      "probe_precision": 0.8114035087719298,
+      "escalation_rate": 1.0
+    },
+    {
+      "policy": "none",
+      "condition": "ambiguous_user",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "none",
+      "condition": "canonical",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "none",
+      "condition": "system_expensive",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "none",
+      "condition": "system_unavailable",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "none",
+      "condition": "user_delayed",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "none",
+      "condition": "user_unavailable",
+      "resolution_rate": 0.0,
+      "mean_cost": 0.0,
+      "probe_precision": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "ambiguous_user",
+      "resolution_rate": 1.0,
+      "mean_cost": 8.0,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.6140350877192983
+    },
+    {
+      "policy": "oracle",
+      "condition": "canonical",
+      "resolution_rate": 1.0,
+      "mean_cost": 3.6140350877192984,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.17543859649122806
+    },
+    {
+      "policy": "oracle",
+      "condition": "system_expensive",
+      "resolution_rate": 1.0,
+      "mean_cost": 6.105263157894737,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.17543859649122806
+    },
+    {
+      "policy": "oracle",
+      "condition": "system_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 9.219298245614034,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.7982456140350878
+    },
+    {
+      "policy": "oracle",
+      "condition": "user_delayed",
+      "resolution_rate": 1.0,
+      "mean_cost": 5.675438596491228,
+      "probe_precision": 1.0,
+      "escalation_rate": 0.17543859649122806
+    },
+    {
+      "policy": "oracle",
+      "condition": "user_unavailable",
+      "resolution_rate": 1.0,
+      "mean_cost": 10.62280701754386,
+      "probe_precision": 1.0,
+      "escalation_rate": 1.0
+    }
+  ],
+  "limitations": [
+    "Role requirements are derived from expected action requestors, not free-form human answers.",
+    "Ambiguous user responses are simulated with a seeded 0.5 response-success probability.",
+    "Human escalation is modeled as resolving unavailable primary channels."
+  ]
+}

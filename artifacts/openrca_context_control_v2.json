@@ -1,0 +1,1730 @@
+{
+  "dataset": "OpenRCA Telecom out-of-fold modality action models",
+  "action": "top-3 root-component triage",
+  "split": "leave-one-date-out controller evaluation; two preceding dates calibrate",
+  "conditions": [
+    "canonical",
+    "high_trace_cost",
+    "stale_metric",
+    "temporal_gap",
+    "trace_unavailable",
+    "wrong_entity_metric"
+  ],
+  "sufficiency": {
+    "AUROC": 0.7481161800181891,
+    "AUPRC": 0.8977454844491563,
+    "Brier": 0.2012333646400126,
+    "ECE": 0.14347226309968444,
+    "positive_rate": 0.7094474153297683,
+    "median_threshold": 0.6
+  },
+  "correlation_audit": {
+    "cases": 51,
+    "duplicate_confidence_delta": -0.012790782161227416,
+    "duplicate_accuracy_delta": 0.0,
+    "independent_trace_confidence_delta": 0.24129638489720173,
+    "independent_trace_accuracy_delta": 0.19607843137254902
+  },
+  "routing_audit": {
+    "source_ranker": {
+      "canonical": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.8431372549019608,
+        "mean_cost": 2.5647058823529414
+      },
+      "stale_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.8235294117647058,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.6235294117647068
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.8235294117647058,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.6235294117647068
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7254901960784313,
+        "acceptable_rate": 0.8431372549019608,
+        "mean_cost": 6.87843137254902
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8490196078431371
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.5647058823529414
+      }
+    },
+    "guarded_ranker": {
+      "canonical": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.8431372549019608,
+        "mean_cost": 2.5647058823529414
+      },
+      "stale_metric": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.9411764705882353,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 3.4705882352941178
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.9411764705882353,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 3.4705882352941178
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7254901960784313,
+        "acceptable_rate": 0.8431372549019608,
+        "mean_cost": 6.87843137254902
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8490196078431371
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.5490196078431373,
+        "mean_cost": 3.0
+      }
+    },
+    "voi_ranker": {
+      "canonical": {
+        "metric_selected_rate": 0.47058823529411764,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 1.9254901960784312
+      },
+      "stale_metric": {
+        "metric_selected_rate": 0.5098039215686274,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.7843137254901961,
+        "mean_cost": 1.9372549019607843
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 0.5098039215686274,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.7843137254901961,
+        "mean_cost": 1.9372549019607843
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 0.5490196078431373,
+        "trace_selected_rate": 0.6274509803921569,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 5.458823529411764
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 0.6274509803921569,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6274509803921569,
+        "mean_cost": 0.5019607843137256
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 0.47058823529411764,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 1.9058823529411761
+      }
+    },
+    "guarded_voi": {
+      "canonical": {
+        "metric_selected_rate": 0.47058823529411764,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 1.9254901960784312
+      },
+      "stale_metric": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 1.5294117647058822
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 1.5294117647058822
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 0.5490196078431373,
+        "trace_selected_rate": 0.6274509803921569,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 5.458823529411764
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 0.6274509803921569,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6274509803921569,
+        "mean_cost": 0.5019607843137256
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 0.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.5490196078431373,
+        "mean_cost": 0.20588235294117646
+      }
+    },
+    "ranker_cost10": {
+      "canonical": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.8431372549019608,
+        "mean_cost": 2.5647058823529414
+      },
+      "stale_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.5647058823529414
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.5647058823529414
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.7647058823529411,
+        "acceptable_rate": 0.803921568627451,
+        "mean_cost": 2.5647058823529414
+      }
+    },
+    "ranker_cost20": {
+      "canonical": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.6078431372549019,
+        "acceptable_rate": 0.8235294117647058,
+        "mean_cost": 2.407843137254902
+      },
+      "stale_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.6078431372549019,
+        "acceptable_rate": 0.7647058823529411,
+        "mean_cost": 2.407843137254902
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.6078431372549019,
+        "acceptable_rate": 0.7647058823529411,
+        "mean_cost": 2.407843137254902
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 1.8
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 1.0,
+        "trace_selected_rate": 0.6274509803921569,
+        "acceptable_rate": 0.7843137254901961,
+        "mean_cost": 2.4274509803921567
+      }
+    },
+    "gate_plus_ranker": {
+      "canonical": {
+        "metric_selected_rate": 0.4117647058823529,
+        "trace_selected_rate": 0.7450980392156863,
+        "acceptable_rate": 0.6470588235294118,
+        "mean_cost": 2.7411764705882353
+      },
+      "stale_metric": {
+        "metric_selected_rate": 0.4117647058823529,
+        "trace_selected_rate": 0.7450980392156863,
+        "acceptable_rate": 0.6078431372549019,
+        "mean_cost": 3.074509803921569
+      },
+      "wrong_entity_metric": {
+        "metric_selected_rate": 0.4117647058823529,
+        "trace_selected_rate": 0.7450980392156863,
+        "acceptable_rate": 0.6078431372549019,
+        "mean_cost": 3.074509803921569
+      },
+      "high_trace_cost": {
+        "metric_selected_rate": 0.5490196078431373,
+        "trace_selected_rate": 0.7254901960784313,
+        "acceptable_rate": 0.6078431372549019,
+        "mean_cost": 7.184313725490196
+      },
+      "trace_unavailable": {
+        "metric_selected_rate": 0.7450980392156863,
+        "trace_selected_rate": 0.0,
+        "acceptable_rate": 0.29411764705882354,
+        "mean_cost": 3.341176470588236
+      },
+      "temporal_gap": {
+        "metric_selected_rate": 0.4117647058823529,
+        "trace_selected_rate": 0.7450980392156863,
+        "acceptable_rate": 0.6078431372549019,
+        "mean_cost": 2.9176470588235297
+      }
+    }
+  },
+  "policies": [
+    {
+      "policy": "always_fetch",
+      "episodes": 306,
+      "acceptable_rate": 0.738562091503268,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.26143790849673204,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 4.833333333333333,
+      "mean_cost": 7.466666666666668,
+      "mean_latency": 10.0,
+      "accuracy_attempted": 0.738562091503268
+    },
+    {
+      "policy": "fixed_relevant",
+      "episodes": 306,
+      "acceptable_rate": 0.7908496732026143,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.20915032679738563,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.8333333333333333,
+      "mean_cost": 3.6666666666666665,
+      "mean_latency": 5.0,
+      "accuracy_attempted": 0.7908496732026143
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.5620915032679739,
+      "coverage": 0.6666666666666667,
+      "unsafe_action_rate": 0.10457516339869281,
+      "safe_abstention_rate": 0.13071895424836602,
+      "missed_safe_action_rate": 0.20261437908496732,
+      "mean_calls": 2.133986928104575,
+      "mean_cost": 3.7222222222222223,
+      "mean_latency": 5.143790849673203,
+      "accuracy_attempted": 0.8431372549019608
+    },
+    {
+      "policy": "gate_t30",
+      "episodes": 306,
+      "acceptable_rate": 0.6797385620915033,
+      "coverage": 0.9509803921568627,
+      "unsafe_action_rate": 0.27124183006535946,
+      "safe_abstention_rate": 0.0196078431372549,
+      "missed_safe_action_rate": 0.029411764705882353,
+      "mean_calls": 0.7026143790849673,
+      "mean_cost": 1.4875816993464053,
+      "mean_latency": 2.15359477124183,
+      "accuracy_attempted": 0.7147766323024055
+    },
+    {
+      "policy": "gate_t40",
+      "episodes": 306,
+      "acceptable_rate": 0.7124183006535948,
+      "coverage": 0.8660130718954249,
+      "unsafe_action_rate": 0.15359477124183007,
+      "safe_abstention_rate": 0.05555555555555555,
+      "missed_safe_action_rate": 0.0784313725490196,
+      "mean_calls": 1.3529411764705883,
+      "mean_cost": 2.6222222222222222,
+      "mean_latency": 3.7287581699346406,
+      "accuracy_attempted": 0.8226415094339623
+    },
+    {
+      "policy": "gate_t50",
+      "episodes": 306,
+      "acceptable_rate": 0.6339869281045751,
+      "coverage": 0.7549019607843137,
+      "unsafe_action_rate": 0.12091503267973856,
+      "safe_abstention_rate": 0.10457516339869281,
+      "missed_safe_action_rate": 0.14052287581699346,
+      "mean_calls": 1.8529411764705883,
+      "mean_cost": 3.29281045751634,
+      "mean_latency": 4.584967320261438,
+      "accuracy_attempted": 0.8398268398268398
+    },
+    {
+      "policy": "gate_t60",
+      "episodes": 306,
+      "acceptable_rate": 0.5359477124183006,
+      "coverage": 0.6111111111111112,
+      "unsafe_action_rate": 0.07516339869281045,
+      "safe_abstention_rate": 0.1568627450980392,
+      "missed_safe_action_rate": 0.23202614379084968,
+      "mean_calls": 2.3562091503267975,
+      "mean_cost": 3.9607843137254903,
+      "mean_latency": 5.434640522875817,
+      "accuracy_attempted": 0.8770053475935828
+    },
+    {
+      "policy": "gate_t70",
+      "episodes": 306,
+      "acceptable_rate": 0.49673202614379086,
+      "coverage": 0.5326797385620915,
+      "unsafe_action_rate": 0.03594771241830065,
+      "safe_abstention_rate": 0.20261437908496732,
+      "missed_safe_action_rate": 0.2647058823529412,
+      "mean_calls": 2.6241830065359477,
+      "mean_cost": 4.321568627450981,
+      "mean_latency": 5.888888888888889,
+      "accuracy_attempted": 0.9325153374233128
+    },
+    {
+      "policy": "gate_t80",
+      "episodes": 306,
+      "acceptable_rate": 0.369281045751634,
+      "coverage": 0.3790849673202614,
+      "unsafe_action_rate": 0.00980392156862745,
+      "safe_abstention_rate": 0.238562091503268,
+      "missed_safe_action_rate": 0.38235294117647056,
+      "mean_calls": 3.2222222222222223,
+      "mean_cost": 5.113725490196078,
+      "mean_latency": 6.898692810457517,
+      "accuracy_attempted": 0.9741379310344828
+    },
+    {
+      "policy": "gate_t90",
+      "episodes": 306,
+      "acceptable_rate": 0.29411764705882354,
+      "coverage": 0.29738562091503273,
+      "unsafe_action_rate": 0.0032679738562091504,
+      "safe_abstention_rate": 0.25163398692810457,
+      "missed_safe_action_rate": 0.45098039215686275,
+      "mean_calls": 3.503267973856209,
+      "mean_cost": 5.467320261437909,
+      "mean_latency": 7.3431372549019605,
+      "accuracy_attempted": 0.989010989010989
+    },
+    {
+      "policy": "guarded_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.7483660130718954,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.25163398692810457,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 3.538888888888889,
+      "mean_latency": 4.915032679738562,
+      "accuracy_attempted": 0.7483660130718954
+    },
+    {
+      "policy": "guarded_voi",
+      "episodes": 306,
+      "acceptable_rate": 0.7320261437908496,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.2679738562091503,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 0.7875816993464052,
+      "mean_cost": 1.8584967320261438,
+      "mean_latency": 2.7254901960784315,
+      "accuracy_attempted": 0.7320261437908496
+    },
+    {
+      "policy": "metric_only",
+      "episodes": 306,
+      "acceptable_rate": 0.6601307189542484,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.33986928104575165,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 1.0,
+      "mean_latency": 1.0,
+      "accuracy_attempted": 0.6601307189542484
+    },
+    {
+      "policy": "no_context",
+      "episodes": 306,
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.45098039215686275,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 0.0,
+      "mean_cost": 0.0,
+      "mean_latency": 0.0,
+      "accuracy_attempted": 0.5490196078431373
+    },
+    {
+      "policy": "oracle",
+      "episodes": 306,
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 0.8431372549019608,
+      "unsafe_action_rate": 0.0,
+      "safe_abstention_rate": 0.1568627450980392,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.0359477124183007,
+      "mean_cost": 1.6679738562091502,
+      "mean_latency": 2.281045751633987,
+      "accuracy_attempted": 1.0
+    },
+    {
+      "policy": "random_top1",
+      "episodes": 306,
+      "acceptable_rate": 0.6503267973856209,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.34967320261437906,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 1.4588235294117646,
+      "mean_latency": 1.9281045751633987,
+      "accuracy_attempted": 0.6503267973856209
+    },
+    {
+      "policy": "ranker_cost10",
+      "episodes": 306,
+      "acceptable_rate": 0.7581699346405228,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.24183006535947713,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 2.3098039215686272,
+      "mean_latency": 3.019607843137255,
+      "accuracy_attempted": 0.7581699346405228
+    },
+    {
+      "policy": "ranker_cost20",
+      "episodes": 306,
+      "acceptable_rate": 0.738562091503268,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.26143790849673204,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 2.2084967320261435,
+      "mean_latency": 2.816993464052288,
+      "accuracy_attempted": 0.738562091503268
+    },
+    {
+      "policy": "ranker_k1",
+      "episodes": 306,
+      "acceptable_rate": 0.7549019607843137,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.24509803921568626,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.0,
+      "mean_cost": 1.811764705882353,
+      "mean_latency": 2.630718954248366,
+      "accuracy_attempted": 0.7549019607843137
+    },
+    {
+      "policy": "ranker_k2",
+      "episodes": 306,
+      "acceptable_rate": 0.7908496732026143,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.20915032679738563,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 3.1839869281045754,
+      "mean_latency": 4.405228758169935,
+      "accuracy_attempted": 0.7908496732026143
+    },
+    {
+      "policy": "ranker_k3",
+      "episodes": 306,
+      "acceptable_rate": 0.7679738562091504,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.23202614379084968,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 3.0,
+      "mean_cost": 4.496078431372549,
+      "mean_latency": 6.009803921568627,
+      "accuracy_attempted": 0.7679738562091504
+    },
+    {
+      "policy": "ranker_k4",
+      "episodes": 306,
+      "acceptable_rate": 0.7581699346405228,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.24183006535947713,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 4.0,
+      "mean_cost": 5.984640522875817,
+      "mean_latency": 7.9869281045751634,
+      "accuracy_attempted": 0.7581699346405228
+    },
+    {
+      "policy": "ranker_k5",
+      "episodes": 306,
+      "acceptable_rate": 0.738562091503268,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.26143790849673204,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 4.833333333333333,
+      "mean_cost": 7.466666666666668,
+      "mean_latency": 10.0,
+      "accuracy_attempted": 0.738562091503268
+    },
+    {
+      "policy": "source_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.7908496732026143,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.20915032679738563,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 2.0,
+      "mean_cost": 3.1839869281045754,
+      "mean_latency": 4.405228758169935,
+      "accuracy_attempted": 0.7908496732026143
+    },
+    {
+      "policy": "trace_only",
+      "episodes": 306,
+      "acceptable_rate": 0.761437908496732,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.238562091503268,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 0.8333333333333334,
+      "mean_cost": 2.6666666666666665,
+      "mean_latency": 4.0,
+      "accuracy_attempted": 0.761437908496732
+    },
+    {
+      "policy": "voi_ranker",
+      "episodes": 306,
+      "acceptable_rate": 0.7679738562091504,
+      "coverage": 1.0,
+      "unsafe_action_rate": 0.23202614379084968,
+      "safe_abstention_rate": 0.0,
+      "missed_safe_action_rate": 0.0,
+      "mean_calls": 1.1405228758169934,
+      "mean_cost": 2.2777777777777777,
+      "mean_latency": 3.310457516339869,
+      "accuracy_attempted": 0.7679738562091504
+    }
+  ],
+  "by_condition": [
+    {
+      "policy": "always_fetch",
+      "condition": "canonical",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 12.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 4.8
+    },
+    {
+      "policy": "always_fetch",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 9.0
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "fixed_relevant",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "canonical",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 0.803921568627451,
+      "mean_cost": 2.741176470588235
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 0.7843137254901961,
+      "mean_cost": 7.184313725490196
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 0.6862745098039216,
+      "mean_cost": 3.0745098039215684
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 0.7254901960784313,
+      "mean_cost": 2.9176470588235293
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.29411764705882354,
+      "coverage": 0.3137254901960784,
+      "mean_cost": 3.3411764705882354
+    },
+    {
+      "policy": "gate_plus_ranker",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 0.6862745098039216,
+      "mean_cost": 3.0745098039215684
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "canonical",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 1.0745098039215686
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6666666666666666,
+      "coverage": 1.0,
+      "mean_cost": 3.0274509803921568
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 1.0745098039215686
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 1.0745098039215686
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.43137254901960786,
+      "coverage": 0.7058823529411764,
+      "mean_cost": 1.5999999999999999
+    },
+    {
+      "policy": "gate_t30",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 1.0745098039215686
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "canonical",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 0.9411764705882353,
+      "mean_cost": 1.8980392156862744
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.7254901960784313,
+      "coverage": 0.9215686274509804,
+      "mean_cost": 5.584313725490197
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 0.9803921568627451,
+      "mean_cost": 1.7411764705882353
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 0.9411764705882353,
+      "mean_cost": 1.8980392156862744
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.3333333333333333,
+      "coverage": 0.43137254901960786,
+      "mean_cost": 2.8705882352941177
+    },
+    {
+      "policy": "gate_t40",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 0.9803921568627451,
+      "mean_cost": 1.7411764705882353
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "canonical",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 0.8823529411764706,
+      "mean_cost": 2.2588235294117647
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.7254901960784313,
+      "coverage": 0.8823529411764706,
+      "mean_cost": 6.321568627450981
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.6666666666666666,
+      "coverage": 0.803921568627451,
+      "mean_cost": 2.6705882352941175
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.6862745098039216,
+      "coverage": 0.803921568627451,
+      "mean_cost": 2.572549019607843
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.3137254901960784,
+      "coverage": 0.3529411764705882,
+      "mean_cost": 3.1843137254901963
+    },
+    {
+      "policy": "gate_t50",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.6666666666666666,
+      "coverage": 0.803921568627451,
+      "mean_cost": 2.749019607843137
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "canonical",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 0.7450980392156863,
+      "mean_cost": 2.9607843137254903
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 0.7450980392156863,
+      "mean_cost": 7.227450980392157
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 0.6274509803921569,
+      "mean_cost": 3.392156862745098
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.5882352941176471,
+      "coverage": 0.6274509803921569,
+      "mean_cost": 3.372549019607843
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.27450980392156865,
+      "coverage": 0.2941176470588235,
+      "mean_cost": 3.419607843137255
+    },
+    {
+      "policy": "gate_t60",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 0.6274509803921569,
+      "mean_cost": 3.392156862745098
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "canonical",
+      "acceptable_rate": 0.5882352941176471,
+      "coverage": 0.6666666666666667,
+      "mean_cost": 3.2470588235294118
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 0.6274509803921569,
+      "mean_cost": 7.894117647058824
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.5098039215686274,
+      "coverage": 0.5294117647058824,
+      "mean_cost": 3.8156862745098037
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 0.5686274509803921,
+      "mean_cost": 3.6588235294117646
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.27450980392156865,
+      "coverage": 0.27450980392156865,
+      "mean_cost": 3.4980392156862745
+    },
+    {
+      "policy": "gate_t70",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.5098039215686274,
+      "coverage": 0.5294117647058824,
+      "mean_cost": 3.8156862745098037
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "canonical",
+      "acceptable_rate": 0.45098039215686275,
+      "coverage": 0.4901960784313726,
+      "mean_cost": 4.101960784313725
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.4117647058823529,
+      "coverage": 0.43137254901960786,
+      "mean_cost": 9.152941176470588
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.37254901960784315,
+      "coverage": 0.37254901960784315,
+      "mean_cost": 4.592156862745098
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.37254901960784315,
+      "coverage": 0.37254901960784315,
+      "mean_cost": 4.572549019607843
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.23529411764705882,
+      "coverage": 0.23529411764705888,
+      "mean_cost": 3.6705882352941175
+    },
+    {
+      "policy": "gate_t80",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.37254901960784315,
+      "coverage": 0.37254901960784315,
+      "mean_cost": 4.592156862745098
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "canonical",
+      "acceptable_rate": 0.35294117647058826,
+      "coverage": 0.37254901960784315,
+      "mean_cost": 4.698039215686275
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.3137254901960784,
+      "coverage": 0.3137254901960784,
+      "mean_cost": 9.556862745098039
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.29411764705882354,
+      "coverage": 0.2941176470588235,
+      "mean_cost": 4.933333333333334
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.27450980392156865,
+      "coverage": 0.27450980392156865,
+      "mean_cost": 5.011764705882353
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.23529411764705882,
+      "coverage": 0.23529411764705888,
+      "mean_cost": 3.6705882352941175
+    },
+    {
+      "policy": "gate_t90",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.29411764705882354,
+      "coverage": 0.2941176470588235,
+      "mean_cost": 4.933333333333334
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 6.87843137254902
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 3.4705882352941178
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 3.0
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8490196078431371
+    },
+    {
+      "policy": "guarded_ranker",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 3.4705882352941178
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "canonical",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.9254901960784312
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 5.458823529411766
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.5294117647058822
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.20588235294117646
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6274509803921569,
+      "coverage": 1.0,
+      "mean_cost": 0.5019607843137255
+    },
+    {
+      "policy": "guarded_voi",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.5294117647058822
+    },
+    {
+      "policy": "metric_only",
+      "condition": "canonical",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "metric_only",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "metric_only",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.6862745098039216,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "metric_only",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "metric_only",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "metric_only",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.6862745098039216,
+      "coverage": 1.0,
+      "mean_cost": 1.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "canonical",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "no_context",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "oracle",
+      "condition": "canonical",
+      "acceptable_rate": 0.8823529411764706,
+      "coverage": 0.8823529411764706,
+      "mean_cost": 1.2941176470588236
+    },
+    {
+      "policy": "oracle",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8823529411764706,
+      "coverage": 0.8823529411764706,
+      "mean_cost": 3.0588235294117645
+    },
+    {
+      "policy": "oracle",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.8627450980392157,
+      "coverage": 0.8627450980392157,
+      "mean_cost": 1.3725490196078431
+    },
+    {
+      "policy": "oracle",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.8627450980392157,
+      "coverage": 0.8627450980392157,
+      "mean_cost": 1.3725490196078431
+    },
+    {
+      "policy": "oracle",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.7058823529411765,
+      "coverage": 0.7058823529411764,
+      "mean_cost": 1.5372549019607842
+    },
+    {
+      "policy": "oracle",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.8627450980392157,
+      "coverage": 0.8627450980392157,
+      "mean_cost": 1.3725490196078431
+    },
+    {
+      "policy": "random_top1",
+      "condition": "canonical",
+      "acceptable_rate": 0.7058823529411765,
+      "coverage": 1.0,
+      "mean_cost": 1.3470588235294119
+    },
+    {
+      "policy": "random_top1",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6862745098039216,
+      "coverage": 1.0,
+      "mean_cost": 2.06078431372549
+    },
+    {
+      "policy": "random_top1",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7058823529411765,
+      "coverage": 1.0,
+      "mean_cost": 1.3392156862745097
+    },
+    {
+      "policy": "random_top1",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.6274509803921569,
+      "coverage": 1.0,
+      "mean_cost": 1.3254901960784313
+    },
+    {
+      "policy": "random_top1",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6078431372549019,
+      "coverage": 1.0,
+      "mean_cost": 1.2647058823529411
+    },
+    {
+      "policy": "random_top1",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.5686274509803921,
+      "coverage": 1.0,
+      "mean_cost": 1.415686274509804
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8
+    },
+    {
+      "policy": "ranker_cost10",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "canonical",
+      "acceptable_rate": 0.8235294117647058,
+      "coverage": 1.0,
+      "mean_cost": 2.407843137254902
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 2.407843137254902
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7843137254901961,
+      "coverage": 1.0,
+      "mean_cost": 2.4274509803921567
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8
+    },
+    {
+      "policy": "ranker_cost20",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 2.407843137254902
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "canonical",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.7176470588235293
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.6666666666666666,
+      "coverage": 1.0,
+      "mean_cost": 3.1999999999999997
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.7176470588235293
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.7176470588235293
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 0.8
+    },
+    {
+      "policy": "ranker_k1",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.7176470588235293
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 6.87843137254902
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.6235294117647054
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8490196078431371
+    },
+    {
+      "policy": "ranker_k2",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.6235294117647054
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 3.7803921568627445
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 8.33921568627451
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 3.8588235294117643
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7843137254901961,
+      "coverage": 1.0,
+      "mean_cost": 3.7901960784313724
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 3.349019607843137
+    },
+    {
+      "policy": "ranker_k3",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 3.8588235294117643
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "canonical",
+      "acceptable_rate": 0.8235294117647058,
+      "coverage": 1.0,
+      "mean_cost": 5.280392156862745
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 9.83921568627451
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 5.349019607843138
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7843137254901961,
+      "coverage": 1.0,
+      "mean_cost": 5.290196078431372
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 4.8
+    },
+    {
+      "policy": "ranker_k4",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 5.349019607843138
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "canonical",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 12.8
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.7647058823529411,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 4.8
+    },
+    {
+      "policy": "ranker_k5",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7450980392156863,
+      "coverage": 1.0,
+      "mean_cost": 6.8
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "canonical",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.8431372549019608,
+      "coverage": 1.0,
+      "mean_cost": 6.87843137254902
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.6235294117647054
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.564705882352941
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6470588235294118,
+      "coverage": 1.0,
+      "mean_cost": 1.8490196078431371
+    },
+    {
+      "policy": "source_ranker",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.6235294117647054
+    },
+    {
+      "policy": "trace_only",
+      "condition": "canonical",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.0
+    },
+    {
+      "policy": "trace_only",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 8.0
+    },
+    {
+      "policy": "trace_only",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.0
+    },
+    {
+      "policy": "trace_only",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.0
+    },
+    {
+      "policy": "trace_only",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.5490196078431373,
+      "coverage": 1.0,
+      "mean_cost": 0.0
+    },
+    {
+      "policy": "trace_only",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 2.0
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "canonical",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.9254901960784312
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "high_trace_cost",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 5.458823529411766
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "stale_metric",
+      "acceptable_rate": 0.7843137254901961,
+      "coverage": 1.0,
+      "mean_cost": 1.9372549019607843
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "temporal_gap",
+      "acceptable_rate": 0.803921568627451,
+      "coverage": 1.0,
+      "mean_cost": 1.9058823529411761
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "trace_unavailable",
+      "acceptable_rate": 0.6274509803921569,
+      "coverage": 1.0,
+      "mean_cost": 0.5019607843137255
+    },
+    {
+      "policy": "voi_ranker",
+      "condition": "wrong_entity_metric",
+      "acceptable_rate": 0.7843137254901961,
+      "coverage": 1.0,
+      "mean_cost": 1.9372549019607843
+    }
+  ]
+}

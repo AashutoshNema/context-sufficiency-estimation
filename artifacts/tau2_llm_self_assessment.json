@@ -1,0 +1,47 @@
+{
+  "dataset": "Pinned Tau2 GPT-4.1 Telecom trajectories and hard-counterfactual continuation labels",
+  "interpretation": "A write call is implicit LLM context-sufficient; another read or dialogue step is implicit insufficient.",
+  "metrics": {
+    "decision_prefixes": 2007,
+    "coverage": 0.17438963627304435,
+    "safe_action_rate_all": 0.09367214748380667,
+    "safe_rate_when_acted": 0.5371428571428571,
+    "false_sufficient_rate_all": 0.08071748878923767,
+    "false_sufficient_rate_when_acted": 0.46285714285714286,
+    "false_insufficient_rate_all": 0.3353263577478824,
+    "oracle_sufficient_rate": 0.4334828101644245,
+    "unnecessary_query_rate_given_sufficient": 0.7735632183908046,
+    "mean_reads_before_act": 4.865714285714286
+  },
+  "by_task_family": [
+    {
+      "task_family": "[mms_issue]",
+      "prefixes": 818,
+      "coverage": 0.08801955990220049,
+      "safe_rate_all": 0.02444987775061125,
+      "false_sufficient": 0.06356968215158924,
+      "false_insufficient": 0.3704156479217604
+    },
+    {
+      "task_family": "[mobile_data_issue]",
+      "prefixes": 887,
+      "coverage": 0.12063134160090191,
+      "safe_rate_all": 0.02480270574971815,
+      "false_sufficient": 0.09582863585118377,
+      "false_insufficient": 0.3043968432919955
+    },
+    {
+      "task_family": "[service_issue]",
+      "prefixes": 302,
+      "coverage": 0.5662251655629139,
+      "safe_rate_all": 0.48344370860927155,
+      "false_sufficient": 0.08278145695364239,
+      "false_insufficient": 0.33112582781456956
+    }
+  ],
+  "limitations": [
+    "The archived model did not emit a numeric confidence score.",
+    "A safe counterfactual candidate existing does not mean the LLM knew which candidate was safe.",
+    "Dialogue-only turns are grouped with continued acquisition/abstention."
+  ]
+}

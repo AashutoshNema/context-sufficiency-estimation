@@ -1,0 +1,363 @@
+{
+  "dataset": "Tau2 Telecom hard-counterfactual replay",
+  "split": "5-fold held-out task groups",
+  "conditions": [
+    "canonical",
+    "single_asset",
+    "connected_assets",
+    "independent_assets",
+    "ambiguous_asset",
+    "missing_target_evidence",
+    "cross_asset"
+  ],
+  "models": [
+    {
+      "model": "entity_aware",
+      "decisions": 5682,
+      "safe_action_rate": 0.8412530799014432,
+      "wrong_asset_rate": 0.0,
+      "ownership_valid_rate": 1.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "decisions": 5682,
+      "safe_action_rate": 0.7180570221752904,
+      "wrong_asset_rate": 0.0,
+      "ownership_valid_rate": 1.0
+    },
+    {
+      "model": "mechanical",
+      "decisions": 5682,
+      "safe_action_rate": 0.8203097500879972,
+      "wrong_asset_rate": 0.02763111580429426,
+      "ownership_valid_rate": 0.9727208729320662
+    },
+    {
+      "model": "oracle",
+      "decisions": 5682,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0,
+      "ownership_valid_rate": 1.0
+    },
+    {
+      "model": "provenance",
+      "decisions": 5682,
+      "safe_action_rate": 0.7108412530799014,
+      "wrong_asset_rate": 0.010559662090813094,
+      "ownership_valid_rate": 0.9901443153819077
+    },
+    {
+      "model": "random",
+      "decisions": 5682,
+      "safe_action_rate": 0.2592397043294615,
+      "wrong_asset_rate": 0.5818373812038015,
+      "ownership_valid_rate": 0.6114044350580782
+    }
+  ],
+  "by_condition": [
+    {
+      "model": "entity_aware",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.7965517241379311,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 0.7988505747126436,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.7988505747126436,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.7988505747126436,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 0.7954022988505747,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "entity_aware",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 0.9523809523809523,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.5896551724137931,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 0.6896551724137931,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.7114942528735633,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.7114942528735633,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 0.5908045977011495,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "hard_entity_gate",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 0.7467532467532467,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.7977011494252874,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 0.7977011494252874,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.8206896551724138,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.8206896551724138,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.8195402298850575,
+      "wrong_asset_rate": 0.18045977011494252
+    },
+    {
+      "model": "mechanical",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 0.7977011494252874,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "mechanical",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 0.948051948051948,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "oracle",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 1.0,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "provenance",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.5885057471264368,
+      "wrong_asset_rate": 0.0011494252873563218
+    },
+    {
+      "model": "provenance",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 0.696551724137931,
+      "wrong_asset_rate": 0.0011494252873563218
+    },
+    {
+      "model": "provenance",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.7172413793103448,
+      "wrong_asset_rate": 0.0011494252873563218
+    },
+    {
+      "model": "provenance",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.7172413793103448,
+      "wrong_asset_rate": 0.0011494252873563218
+    },
+    {
+      "model": "provenance",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.9356321839080459,
+      "wrong_asset_rate": 0.06436781609195402
+    },
+    {
+      "model": "provenance",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 0.5839080459770115,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "provenance",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 0.7597402597402597,
+      "wrong_asset_rate": 0.0
+    },
+    {
+      "model": "random",
+      "condition": "ambiguous_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.18275862068965518,
+      "wrong_asset_rate": 0.6770114942528735
+    },
+    {
+      "model": "random",
+      "condition": "canonical",
+      "decisions": 870,
+      "safe_action_rate": 0.18275862068965518,
+      "wrong_asset_rate": 0.6770114942528735
+    },
+    {
+      "model": "random",
+      "condition": "connected_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.435632183908046,
+      "wrong_asset_rate": 0.35172413793103446
+    },
+    {
+      "model": "random",
+      "condition": "cross_asset",
+      "decisions": 870,
+      "safe_action_rate": 0.22528735632183908,
+      "wrong_asset_rate": 0.674712643678161
+    },
+    {
+      "model": "random",
+      "condition": "independent_assets",
+      "decisions": 870,
+      "safe_action_rate": 0.2574712643678161,
+      "wrong_asset_rate": 0.7425287356321839
+    },
+    {
+      "model": "random",
+      "condition": "missing_target_evidence",
+      "decisions": 870,
+      "safe_action_rate": 0.18275862068965518,
+      "wrong_asset_rate": 0.6770114942528735
+    },
+    {
+      "model": "random",
+      "condition": "single_asset",
+      "decisions": 462,
+      "safe_action_rate": 0.4264069264069264,
+      "wrong_asset_rate": 0.0
+    }
+  ],
+  "integrity": {
+    "hidden_world_fixed": true,
+    "candidate_safety_labels_not_features": true,
+    "interventions_modify_candidate inventory or observation visibility only": true
+  },
+  "limitations": [
+    "Customer graph has four customers and nine lines.",
+    "Connected-asset structure is ownership, not a general causal topology.",
+    "Visibility is exact scalar-value provenance in prior user/tool messages."
+  ]
+}
