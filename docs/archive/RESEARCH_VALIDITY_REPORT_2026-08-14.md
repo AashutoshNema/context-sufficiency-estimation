@@ -1,5 +1,7 @@
 # Context sufficiency research validity report
 
+> **Superseded on 2026-08-16.** This synthesis overstates evidence for the learned adaptive controller and is retained only for audit history. See [`../RESEARCH_STATUS.md`](../RESEARCH_STATUS.md) for the active verdict.
+
 ## Decision
 
 **Conditional GO for the controlled-replay claim; NO-GO for an unrestricted production-general claim.**

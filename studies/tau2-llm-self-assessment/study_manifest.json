@@ -1,0 +1,13 @@
+{
+  "study_id": "tau2-llm-self-assessment",
+  "status": "negative-baseline",
+  "hypothesis": "Archived LLM read/write behavior can serve as an implicit context-sufficiency gate.",
+  "dataset": {
+    "name": "Tau2 Telecom archived GPT-4.1 decision prefixes",
+    "prefixes": 2007
+  },
+  "split": "descriptive archived-policy evaluation",
+  "primary_reliability_metric": "false-sufficient rate when acting",
+  "primary_efficiency_metric": "unnecessary-query rate",
+  "falsification_condition": "The LLM acts under insufficient context or continues querying after context is sufficient."
+}

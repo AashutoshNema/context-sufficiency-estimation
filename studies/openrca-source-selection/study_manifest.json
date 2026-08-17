@@ -1,0 +1,14 @@
+{
+  "study_id": "openrca-source-selection",
+  "status": "inconclusive-adaptivity",
+  "hypothesis": "Learned source selection beats broad and strong static context policies on the reliability-efficiency frontier.",
+  "dataset": {
+    "name": "OpenRCA 1.0 Telecom",
+    "cases": 51
+  },
+  "split": "leave-one-telemetry-date-out",
+  "seed": 42,
+  "primary_reliability_metric": "top-3 root-component triage accuracy",
+  "primary_efficiency_metric": "source calls and synthetic cost",
+  "falsification_condition": "Learned routing does not beat the strong static relevant-source policy."
+}

@@ -14,7 +14,7 @@ from prepare_benchmark import prepare
 
 HERE = Path(__file__).resolve().parent
 PROJECT_ROOT = HERE.parents[2]
-MANIFEST = json.loads((HERE / "benchmark_manifest.json").read_text())
+MANIFEST = json.loads((HERE.parent / "benchmark_manifest.json").read_text())
 
 
 def run(command: list[str], env: dict[str, str]) -> None:
@@ -28,7 +28,7 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("experiments/context_sufficiency/artifacts/reproduction"),
+        default=HERE.parent / "artifacts/reproduction",
     )
     parser.add_argument("--skip-prepare", action="store_true")
     args = parser.parse_args()

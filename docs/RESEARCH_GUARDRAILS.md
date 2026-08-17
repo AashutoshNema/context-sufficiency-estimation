@@ -1,6 +1,6 @@
 # Context Sufficiency Research Guardrails
 
-This project’s north star is the action-conditioned, cost-aware context controller described in `research_northstar.md`.
+This file is the project’s operational north star for an action-conditioned, cost-aware context controller.
 
 ## Non-negotiable research question
 

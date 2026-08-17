@@ -16,6 +16,8 @@ The pinned GPT-4.1 result contains 456 original trajectories over 114 tasks and 
 | User-stop termination | 453/456 |
 | Maximum-step termination | 3/456 |
 
+The end-to-end result is the mean official Tau2 reward: 156 successful rewards across 456 trajectories. The pinned raw result is intentionally excluded from Git, so this aggregate must be reproduced from the benchmark revision and result file listed below. It is distinct from the controller safety metric in the next table. The two percentages are both 34.2% because 156/456 and 130/380 reduce to the same fraction.
+
 On the controller’s 23 held-out task groups and 380 write-decision prefixes, the reproduced policies achieve:
 
 | Context condition | Safe selected action | Reads | Context tokens |
@@ -39,6 +41,8 @@ For the narrower, explicitly action-conditioned component-triage task used by Co
 | Traces | 58.8% | 80.4% |
 | Metrics + traces | **60.8%** | **84.3%** |
 | All extracted sources without topology mapping | 49.0% | 76.5% |
+
+These are supervised leave-one-date-out candidate-ranking results. They are not the same formulation as the earlier unsupervised anomaly heuristic, which reached 13.7% top-1 and 27.5% top-3. The source-selection study documents both formulations explicitly.
 
 The two benchmarks answer different action questions. Tau2 measures end-to-end support action safety; OpenRCA v2 measures a top-3 component shortlist. Their percentages must not be compared as if they were the same endpoint.
 

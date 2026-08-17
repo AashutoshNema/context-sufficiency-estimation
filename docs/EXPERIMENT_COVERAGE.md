@@ -1,4 +1,6 @@
-# North-Star Experiment Coverage Audit
+# Historical North-Star Experiment Coverage Inventory
+
+> This document records which dimensions were exercised as of 2026-08-14. It is not the current validity verdict. Several rows marked complete are controlled mechanism tests rather than proof of the core adaptive controller. See [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md).
 
 Status as of 2026-08-14. An experiment is `complete` only when its code, held-out results, baselines, leakage policy, and scope-limited conclusion are reproducible.
 

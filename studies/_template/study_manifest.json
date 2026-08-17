@@ -1,0 +1,14 @@
+{
+  "study_id": "replace-me",
+  "status": "planned",
+  "hypothesis": "replace-me",
+  "dataset": {
+    "name": "replace-me",
+    "revision": "replace-me"
+  },
+  "split": "replace-me",
+  "seed": null,
+  "primary_reliability_metric": "replace-me",
+  "primary_efficiency_metric": "replace-me",
+  "falsification_condition": "replace-me"
+}
