@@ -1,0 +1,188 @@
+{
+  "dataset": "OpenRCA Telecom raw source-specific candidate features",
+  "split": "leave-one-telemetry-date-out",
+  "folds": [
+    {
+      "test_date": "2020-04-11",
+      "cases": 6,
+      "candidates": 58
+    },
+    {
+      "test_date": "2020-05-22",
+      "cases": 4,
+      "candidates": 43
+    },
+    {
+      "test_date": "2020-05-23",
+      "cases": 6,
+      "candidates": 95
+    },
+    {
+      "test_date": "2020-05-24",
+      "cases": 3,
+      "candidates": 29
+    },
+    {
+      "test_date": "2020-05-25",
+      "cases": 3,
+      "candidates": 57
+    },
+    {
+      "test_date": "2020-05-26",
+      "cases": 7,
+      "candidates": 117
+    },
+    {
+      "test_date": "2020-05-27",
+      "cases": 8,
+      "candidates": 121
+    },
+    {
+      "test_date": "2020-05-28",
+      "cases": 2,
+      "candidates": 30
+    },
+    {
+      "test_date": "2020-05-29",
+      "cases": 3,
+      "candidates": 27
+    },
+    {
+      "test_date": "2020-05-30",
+      "cases": 5,
+      "candidates": 96
+    },
+    {
+      "test_date": "2020-05-31",
+      "cases": 4,
+      "candidates": 65
+    }
+  ],
+  "feature_sets": {
+    "prior": [
+      "historical component frequency"
+    ],
+    "metric": [
+      "metric_rank_score",
+      "metric_anomaly",
+      "metric_change",
+      "metric_observations",
+      "metric_names",
+      "metric_cpu_anomaly",
+      "metric_cpu_change",
+      "metric_network_anomaly",
+      "metric_network_change",
+      "metric_memory_anomaly",
+      "metric_memory_change",
+      "metric_connection_anomaly",
+      "metric_connection_change",
+      "metric_db_state_anomaly",
+      "metric_db_state_change",
+      "metric_disk_anomaly",
+      "metric_disk_change"
+    ],
+    "trace": [
+      "trace_score",
+      "trace_calls",
+      "trace_latency",
+      "trace_max_latency",
+      "trace_failure_rate"
+    ],
+    "metric_trace": [
+      "metric_rank_score",
+      "metric_anomaly",
+      "metric_change",
+      "metric_observations",
+      "metric_names",
+      "metric_cpu_anomaly",
+      "metric_cpu_change",
+      "metric_network_anomaly",
+      "metric_network_change",
+      "metric_memory_anomaly",
+      "metric_memory_change",
+      "metric_connection_anomaly",
+      "metric_connection_change",
+      "metric_db_state_anomaly",
+      "metric_db_state_change",
+      "metric_disk_anomaly",
+      "metric_disk_change",
+      "trace_score",
+      "trace_calls",
+      "trace_latency",
+      "trace_max_latency",
+      "trace_failure_rate"
+    ],
+    "all": [
+      "metric_rank_score",
+      "metric_anomaly",
+      "metric_change",
+      "metric_observations",
+      "metric_names",
+      "metric_cpu_anomaly",
+      "metric_cpu_change",
+      "metric_network_anomaly",
+      "metric_network_change",
+      "metric_memory_anomaly",
+      "metric_memory_change",
+      "metric_connection_anomaly",
+      "metric_connection_change",
+      "metric_db_state_anomaly",
+      "metric_db_state_change",
+      "metric_disk_anomaly",
+      "metric_disk_change",
+      "trace_score",
+      "trace_calls",
+      "trace_latency",
+      "trace_max_latency",
+      "trace_failure_rate",
+      "app_calls",
+      "app_latency",
+      "app_failure_rate",
+      "app_services",
+      "middleware_anomaly",
+      "middleware_change",
+      "middleware_entities",
+      "middleware_conflicts"
+    ]
+  },
+  "results": {
+    "prior": {
+      "cases": 51,
+      "top1": 0.27450980392156865,
+      "top3": 0.5490196078431373,
+      "mrr": 0.49495798319327733
+    },
+    "metric": {
+      "cases": 51,
+      "top1": 0.37254901960784315,
+      "top3": 0.6470588235294118,
+      "mrr": 0.5682384064737006
+    },
+    "trace": {
+      "cases": 51,
+      "top1": 0.5882352941176471,
+      "top3": 0.803921568627451,
+      "mrr": 0.7173669467787116
+    },
+    "metric_trace": {
+      "cases": 51,
+      "top1": 0.6078431372549019,
+      "top3": 0.8431372549019608,
+      "mrr": 0.7394802365390601
+    },
+    "all": {
+      "cases": 51,
+      "top1": 0.49019607843137253,
+      "top3": 0.7647058823529411,
+      "mrr": 0.6527155306567071
+    }
+  },
+  "gate": {
+    "requirement": "always-fetch top-3 must exceed prior-only top-3 before controller evaluation",
+    "passed": true
+  },
+  "notes": [
+    "Application and middleware features are incident-global and therefore cannot localize components without a topology mapping or candidate-specific interaction.",
+    "No root component, reason, root timestamp, or intervention identity is used as an input feature."
+  ]
+}
