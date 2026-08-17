@@ -1,0 +1,14 @@
+{
+  "study_id": "tau2-probing-escalation",
+  "status": "supporting-positive-controlled-replay",
+  "hypothesis": "Selective user/system probing and human escalation preserve resolution at lower interaction cost than unconditional acquisition.",
+  "dataset": {
+    "name": "Tau2 Telecom controlled role replay",
+    "tasks": 114
+  },
+  "split": "five-fold stratified out-of-fold",
+  "seed": 42,
+  "primary_reliability_metric": "resolution rate",
+  "primary_efficiency_metric": "interaction and escalation cost",
+  "falsification_condition": "Gated probing loses resolution or fails to reduce cost against always-all."
+}

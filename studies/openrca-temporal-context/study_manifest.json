@@ -1,0 +1,13 @@
+{
+  "study_id": "openrca-temporal-context",
+  "status": "supporting-positive",
+  "hypothesis": "A learned temporal selector preserves current-window component-triage accuracy at lower retrieval cost.",
+  "dataset": {
+    "name": "OpenRCA 1.0 Telecom",
+    "cases": 51
+  },
+  "split": "leave-one-telemetry-date-out",
+  "primary_reliability_metric": "top-3 root-component triage accuracy",
+  "primary_efficiency_metric": "temporal interval cost",
+  "falsification_condition": "The selector loses accuracy relative to the complete current interval without material cost reduction."
+}

@@ -1,0 +1,14 @@
+{
+  "study_id": "tau2-source-semantics",
+  "status": "supporting-positive-controlled-replay",
+  "hypothesis": "Explicit source authority prevents unsafe prediction overtrust under source conflict and unavailability.",
+  "dataset": {
+    "name": "Tau2 Telecom source-role interventions",
+    "tasks": 114
+  },
+  "split": "five-fold stratified out-of-fold",
+  "seed": 42,
+  "primary_reliability_metric": "unsafe-action and prediction-overtrust rates",
+  "primary_efficiency_metric": "synthetic source cost",
+  "falsification_condition": "The semantic router acts unsafely or follows conflicting predictions."
+}

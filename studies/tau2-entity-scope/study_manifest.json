@@ -1,0 +1,14 @@
+{
+  "study_id": "tau2-entity-scope",
+  "status": "supporting-positive-controlled-replay",
+  "hypothesis": "Explicit entity ownership prevents wrong-asset actions without reducing aggregate safety.",
+  "dataset": {
+    "name": "Tau2 Telecom entity interventions",
+    "decision_condition_groups": 5682
+  },
+  "split": "five-fold held-out task groups",
+  "seed": 42,
+  "primary_reliability_metric": "safe-action and wrong-asset rates",
+  "primary_efficiency_metric": "not primary in this mechanism test",
+  "falsification_condition": "Entity-aware selection permits wrong-asset actions or underperforms the mechanical baseline."
+}

@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 HERE = Path(__file__).resolve().parent
-MANIFEST = HERE / "benchmark_manifest.json"
+MANIFEST = HERE.parent / "benchmark_manifest.json"
 
 
 def run(command: list[str], cwd: Path | None = None) -> None:

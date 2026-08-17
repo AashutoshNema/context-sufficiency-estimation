@@ -1,0 +1,13 @@
+{
+  "study_id": "tau2-selective-controller",
+  "status": "no-go",
+  "hypothesis": "Selective source reacquisition can match full-context action safety with fewer reads and tokens.",
+  "dataset": {
+    "name": "Tau2 Telecom",
+    "revision": "668d3bcd135c02aa3438f987ef45735b7c163ee3"
+  },
+  "split": "held-out task groups",
+  "primary_reliability_metric": "safe selected action rate",
+  "primary_efficiency_metric": "mean read calls and context tokens",
+  "falsification_condition": "Selective policy falls below full-context safety."
+}
